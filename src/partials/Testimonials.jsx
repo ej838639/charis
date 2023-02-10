@@ -31,7 +31,7 @@ function Testimonials() {
                 </div>
                 <blockquote className="text-lg text-gray-400 grow">— Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.</blockquote>
                 <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
-                  <cite className="text-gray-200 not-italic">John Doe</cite> - <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="#0">Parent of Gay Daughter</a>
+                  <cite className="text-gray-200 not-italic">John Doe</cite> - <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="#0">Bothell, WA</a>
                 </div>
               </div>
 
@@ -47,7 +47,7 @@ function Testimonials() {
                   </div>
                   <blockquote className="text-lg text-gray-400 grow">— Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.</blockquote>
                   <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
-                    <cite className="text-gray-200 not-italic">Mary Jane</cite> - <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="#0">Gay Teen</a>
+                    <cite className="text-gray-200 not-italic">Mary Jane</cite> - <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="#0">Seattle, WA</a>
                   </div>
                 </div>
 
@@ -63,7 +63,7 @@ function Testimonials() {
                     </div>
                     <blockquote className="text-lg text-gray-400 grow">Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.</blockquote>
                     <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
-                      <cite className="text-gray-200 not-italic">Joe Schmoe</cite> - <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="#0">1st Baptist Church</a>
+                      <cite className="text-gray-200 not-italic">Joe Schmoe</cite> - <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="#0">Lynnwood, WA</a>
                     </div>
                   </div>
 

@@ -40,7 +40,7 @@ function HeroHome() {
               Charis Mediation
             </h1>
             <p className="text-xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="200">
-              The foundation of our hope is Christ’s love and grace. Based on this foundation, we empower families in conflict to reconcile and strengthen their relationships.
+              Pursuing peace in relationship with compassion and curiosity.
             </p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
@@ -60,15 +60,15 @@ function HeroHome() {
           <div>
             <div className="relative flex justify-center items-center" data-aos="fade-up" data-aos-delay="200">
               <img className="mx-auto" src={CharisLogo} width="1024" height="504" alt="Hero" />
-              {/* <a
-                // className="absolute group"
-                // href="#0"
-                // onClick={(e) => {
-                //   e.preventDefault();
-                //   e.stopPropagation();
-                //   setVideoModalOpen(true);
-                // }}
-                // aria-controls="modal"
+              <a
+                className="absolute group"
+                href="#0"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setVideoModalOpen(true);
+                }}
+                aria-controls="modal"
               >
                 <svg
                   className="w-16 h-16 sm:w-20 sm:h-20 hover:opacity-75 transition duration-150 ease-in-out"
@@ -87,15 +87,15 @@ function HeroHome() {
                     d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"
                   />
                 </svg>
-              </a> */}
+              </a>
             </div>
 
             {/* Modal */}
-            {/* <Modal id="modal" ariaLabel="modal-headline" show={videoModalOpen} handleClose={() => setVideoModalOpen(false)}>
+            <Modal id="modal" ariaLabel="modal-headline" show={videoModalOpen} handleClose={() => setVideoModalOpen(false)}>
               <div className="relative pb-9/16">
                 <iframe className="absolute w-full h-full" src="https://player.vimeo.com/video/174002812" title="Video" allowFullScreen></iframe>
               </div>
-            </Modal> */}
+            </Modal>
           </div>
         </div>
       </div>

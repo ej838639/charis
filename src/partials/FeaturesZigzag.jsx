@@ -29,9 +29,9 @@ function FeaturesZigzag() {
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Lead with relationship</div>
-                  <h3 className="h3 mb-3">Relationship</h3>
-                  <p className="text-xl text-gray-400 mb-4">Loving/Christ centered relationships are hard work. We value supporting and equipping as people do the hard work of pursuing and reconciling relationships.</p>
+                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Overflow with compassion</div>
+                  <h3 className="h3 mb-3">Compassion</h3>
+                  <p className="text-xl text-gray-400 mb-4">We believe everyone in conflict should be treated with compassion and we desire to create a compassionate environment.</p>
                 </div>
               </div>
             </div>
@@ -45,9 +45,9 @@ function FeaturesZigzag() {
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">
                 <div className="md:pl-4 lg:pl-12 xl:pl-16">
-                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Overflow with compassion</div>
-                  <h3 className="h3 mb-3">Compassion</h3>
-                  <p className="text-xl text-gray-400 mb-4">We believe everyone in conflict should be treated with compassion and we desire to create a compassionate environment.</p>
+                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Be curious</div>
+                  <h3 className="h3 mb-3">Curiosity</h3>
+                  <p className="text-xl text-gray-400 mb-4">We have a posture of curiosity and a desire to see the uniqueness of every individual and the uniqueness of the circumstances they face. We are interested in learning more.</p>
                 </div>
               </div>
             </div>
@@ -61,9 +61,9 @@ function FeaturesZigzag() {
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Be curious</div>
-                  <h3 className="h3 mb-3">Curiosity</h3>
-                  <p className="text-xl text-gray-400 mb-4">We have a posture of curiosity and a desire to see the uniqueness of every individual and the uniqueness of the circumstances they face. We are interested in learning more.</p>
+                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Have hope</div>
+                  <h3 className="h3 mb-3">Hope</h3>
+                  <p className="text-xl text-gray-400 mb-4">We will hold the hope for others in conflict and we will look for what is possible. For those that have their hope in Christ we will reflect and remember the hope we have in Him.</p>
                 </div>
               </div>
             </div>
@@ -77,9 +77,9 @@ function FeaturesZigzag() {
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">
                 <div className="md:pl-4 lg:pl-12 xl:pl-16">
-                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Have hope</div>
-                  <h3 className="h3 mb-3">Hope</h3>
-                  <p className="text-xl text-gray-400 mb-4">We will hold the hope for others in conflict and we will look for what is possible. For those that have their hope in Christ we will reflect and remember the hope we have in Him.</p>
+                  <div className="font-architects-daughter text-xl text-purple-600 mb-2">Lead with relationship</div>
+                  <h3 className="h3 mb-3">Relationship</h3>
+                  <p className="text-xl text-gray-400 mb-4">Loving and Christ-centered relationships are hard work. We value supporting and equipping as people do the hard work of pursuing and reconciling relationships.</p>
                 </div>
               </div>
             </div>
