@@ -37,6 +37,7 @@ function AboutAnita() {
           {/* Bottom section */}
           <div className="max-w-6xl mx-auto text-left pb-12 md:pb-16">
             <p className="text-xl text-gray-400">Anita wants to take her experience and offer a process to those in conflict in order to help them explore how biblical peacemaking principles apply to their unique circumstances and create a next step plan to pursue reconciliation.</p>
+            <br></br>
             <p className="text-xl text-gray-400">Anita and her husband Eric have been married since 1997 and have 2 young adult daughters. Their daughters are a delight but that doesn’t stop Anita from practicing her mediation skills on them. In her free time she enjoys long walks, watching movies, and enjoying a good cup of coffee with friends.</p>
           </div>
 

@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
 import AboutAnita from '../partials/AboutAnita';
+import MissionVision from '../partials/MissionVision';
 import Banner from '../partials/Banner';
 import Footer from '../partials/Footer';
 
@@ -21,6 +22,7 @@ function About() {
 
         {/*  Page sections */}
         <AboutAnita />
+        <MissionVision />
       </main>
 
       <Banner />
