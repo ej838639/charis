@@ -53,8 +53,8 @@ function FeaturesBlocks() {
           {/* Section header */}
           <div className="max-w-6xl mx-auto text-center pb-12 md:pb-0">
             <p className="text-xl text-gray-400">-----------------------------------------------------------------------------------------------------</p>
-            <p className="text-xl text-gray-400">All services are provided according to the Model Standard of Mediators, Uniform Mediation Act,</p>
-            <p className="text-xl text-gray-400">and the Rules of Procedure found in the Guidelines for Christian Conciliation</p>
+            <p className="text-xl text-gray-400">All services are provided according to the <a href="https://www.americanbar.org/content/dam/aba/administrative/dispute_resolution/dispute_resolution/model_standards_conduct_april2007.pdf" rel="noreferrer">Model Standards of Conduct for Mediators</a>,</p>
+            <p className="text-xl text-gray-400"> <a href="https://apps.leg.wa.gov/rcw/default.aspx?cite=7.07" rel="noreferrer">Washington Uniform Mediation Act</a>, and the <a href="https://www.aorhope.org/icc-rules" rel="noreferrer">Rules of Procedure for Christian Conciliation</a> </p>
             <p className="text-xl text-gray-400">-----------------------------------------------------------------------------------------------------</p>
           </div>
 
