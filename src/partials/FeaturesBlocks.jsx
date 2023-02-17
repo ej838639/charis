@@ -9,7 +9,7 @@ function FeaturesBlocks() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2 mb-4">You need a space to feel heard and considered as you figure out how to move forward in conflict.</h2>
-            <p className="text-xl text-gray-400">Charis Mediation offers a grace filled, structured process based on faith-based principles to help people reconcile their relationships.</p>
+            <p className="text-xl text-gray-400">Charis Mediation offers a grace filled, structured process based on faith-based principles to help people reconcile their relationships. Here are our services.</p>
           </div>
 
           {/* Items */}
@@ -53,8 +53,8 @@ function FeaturesBlocks() {
           {/* Section header */}
           <div className="max-w-6xl mx-auto text-center pb-12 md:pb-0">
             <p className="text-xl text-gray-400">-----------------------------------------------------------------------------------------------------</p>
-            <p className="text-xl text-gray-400">All services are provided according to the <a href="https://www.americanbar.org/content/dam/aba/administrative/dispute_resolution/dispute_resolution/model_standards_conduct_april2007.pdf" rel="noreferrer">Model Standards of Conduct for Mediators</a>,</p>
-            <p className="text-xl text-gray-400"> <a href="https://apps.leg.wa.gov/rcw/default.aspx?cite=7.07" rel="noreferrer">Washington Uniform Mediation Act</a>, and the <a href="https://www.aorhope.org/icc-rules" rel="noreferrer">Rules of Procedure for Christian Conciliation</a> </p>
+            <p className="text-xl text-gray-400">All services are provided according to the <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://www.americanbar.org/content/dam/aba/administrative/dispute_resolution/dispute_resolution/model_standards_conduct_april2007.pdf">Model Standards of Conduct for Mediators</a>,</p>
+            <p className="text-xl text-gray-400"> <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://apps.leg.wa.gov/rcw/default.aspx?cite=7.07">Washington Uniform Mediation Act</a>, and the <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://www.aorhope.org/icc-rules">Rules of Procedure for Christian Conciliation</a> </p>
             <p className="text-xl text-gray-400">-----------------------------------------------------------------------------------------------------</p>
           </div>
 

@@ -1,8 +1,9 @@
 import React from 'react';
 
-import FeatImage01 from '../images/features-03-image-01.png';
-import FeatImage02 from '../images/features-03-image-02.png';
-import FeatImage03 from '../images/features-03-image-03.png';
+import FeatImage01 from '../images/dave-lowe-vI9wPJ8L5MA-unsplash.jpg';
+import FeatImage02 from '../images/gary-butterfield-YG8rZ323UsU-unsplash.jpg';
+import FeatImage03 from '../images/carl-hunley-jr-kZ_GzLAy4WM-unsplash.jpg';
+import FeatImage04 from '../images/etienne-girardet-RuMqg2cs-M0-unsplash.jpg';
 
 function FeaturesZigzag() {
   return (
@@ -14,7 +15,7 @@ function FeaturesZigzag() {
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">Get to know us</div>
             <h1 className="h2 mb-4">Our Values</h1>
-            <p className="text-xl text-gray-400">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit laborum — semper quis lectus nulla.</p>
+            <p className="text-xl text-gray-400">Compassion, Curiosity, Hope, Relationship</p>
           </div>
 
           {/* Items */}
@@ -25,6 +26,7 @@ function FeaturesZigzag() {
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="fade-up">
                 <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage01} width="540" height="405" alt="Features 01" />
+                Photo by <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/@thelowedown?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dave Lowe</a> 
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
@@ -41,6 +43,7 @@ function FeaturesZigzag() {
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 rtl" data-aos="fade-up">
                 <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage02} width="540" height="405" alt="Features 02" />
+                Photo by <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/@garybpt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Gary Butterfield</a>
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">
@@ -57,6 +60,7 @@ function FeaturesZigzag() {
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="fade-up">
                 <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage03} width="540" height="405" alt="Features 03" />
+                Photo by <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/de/@workbycarl?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Carl Hunley Jr</a>
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
@@ -72,7 +76,8 @@ function FeaturesZigzag() {
             <div className="md:grid md:grid-cols-12 md:gap-6 items-center">
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 rtl" data-aos="fade-up">
-                <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage02} width="540" height="405" alt="Features 02" />
+                <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage04} width="540" height="405" alt="Features 04" />
+                Photo by <a className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/@etiennegirardet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Etienne Girardet</a>
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">
