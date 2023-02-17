@@ -25,7 +25,7 @@ function About() {
         <MissionVision />
       </main>
 
-      <Banner />
+      {/* <Banner /> */}
 
       {/*  Site footer */}
       <Footer />

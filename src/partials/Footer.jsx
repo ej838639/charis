@@ -28,26 +28,30 @@ function Footer() {
 
               {/* 2nd block */}
               <div className="text-sm">
-                <h6 className="text-gray-200 font-medium mb-1">Additional Information</h6>
+                <h6 className="text-gray-200 font-medium mb-1">Learn More</h6>
                 <ul>
                   <li className="mb-1">
                     <Link to="/about" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">About Us</Link>
+                  </li>
+                </ul>
+                <ul>
+                  <li className="mb-1">
+                    <Link to="/learn" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">What is Mediation</Link>
+                  </li>
+                </ul>
+                <ul>
+                  <li className="mb-1">
+                    <Link to="/learn" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">FAQ</Link>
                   </li>
                 </ul>
               </div>
 
               {/* 3rd block */}
               <div className="text-sm">
-                <h6 className="text-gray-200 font-medium mb-1">Resources</h6>
+                <h6 className="text-gray-200 font-medium mb-1">For Mediators</h6>
                 <ul>
                   <li className="mb-1">
-                    <Link to="https://www.americanbar.org/content/dam/aba/administrative/dispute_resolution/dispute_resolution/model_standards_conduct_april2007.pdf" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Model Standards of Conduct for Mediators</Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link to="https://apps.leg.wa.gov/rcw/default.aspx?cite=7.07" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Washington Uniform Mediation Act</Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link to="https://www.aorhope.org/icc-rules" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Rules of Procedure for Christian Conciliation</Link>
+                    <Link to="/network" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Mediator Networking</Link>
                   </li>
                 </ul>
               </div>
@@ -57,10 +61,10 @@ function Footer() {
                 <h6 className="text-gray-200 font-medium mb-1">Support</h6>
                 <ul>
                   <li className="mb-1">
-                    <Link to="#" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Contact Us</Link>
+                    <Link to="#" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Ask a Question</Link>
                   </li>
                   <li className="mb-1">
-                    <Link to="#" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">FAQ</Link>
+                    <Link to="#" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Request a Mediation</Link>
                   </li>
                 </ul>
               </div>

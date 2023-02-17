@@ -42,7 +42,7 @@ function HeroHome() {
             <p className="text-xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="200">
               Pursuing peace in relationship with compassion and curiosity.
             </p>
-            <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
+            {/* <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
                 <a className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">
                   Our Services
@@ -53,7 +53,7 @@ function HeroHome() {
                   Our Values
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Hero image */}

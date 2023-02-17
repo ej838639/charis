@@ -4,9 +4,10 @@ import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
 import HeroHome from '../partials/HeroHome';
 import FeaturesBlocks from '../partials/FeaturesBlocks';
+import ServicesNote from '../partials/ServicesNote';
 import FeaturesZigZag from '../partials/FeaturesZigzag';
 import Testimonials from '../partials/Testimonials';
-import Banner from '../partials/Banner';
+// import Banner from '../partials/Banner';
 import Footer from '../partials/Footer';
 
 function Home() {
@@ -25,12 +26,13 @@ function Home() {
         {/*  Page sections */}
         <HeroHome />
         <FeaturesBlocks />
+        <ServicesNote />
         <FeaturesZigZag />
         <Testimonials />
         {/* <Newsletter /> */}
       </main>
 
-      <Banner />
+      {/* <Banner /> */}
 
       {/*  Site footer */}
       <Footer />
