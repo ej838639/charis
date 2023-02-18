@@ -2,7 +2,7 @@
 
 ## Console
 Project: (use project for charis)
-LOCATION: "us-west3"
+REGION: "us-west3"
 ZONE: "us-west3-c"
 REPO: "charis-docker-repo"
 
@@ -25,7 +25,7 @@ name: charis
 Machine type: e2-micro
 Container section: click Deploy Container. 
 Container image:
-$LOCATION-docker.pkg.dev/$PROJECT/$REPO/charis:latest
+$REGION-docker.pkg.dev/$PROJECT/$REPO/charis:latest
 
 In search bar, search for "firewall rules"
 Click "Firewall: VPC network"
@@ -48,7 +48,7 @@ docker run \
 --name charis \
 -p 5173:5173 \
 -d \
-$LOCATION-docker.pkg.dev/$PROJECT/$REPO/charis:latest
+$REGION-docker.pkg.dev/$PROJECT/$REPO/charis:latest
 ```
 
 ## CLI
@@ -56,12 +56,12 @@ $LOCATION-docker.pkg.dev/$PROJECT/$REPO/charis:latest
 ### Setup environment
 ```shell
 export PROJECT_ID=$(gcloud config get-value project)
-export LOCATION="us-west3"
+export REGION="us-west3"
 export ZONE="us-west3-c"
 export REPO="charis-docker-repo"
 
 gcloud compute project-info add-metadata \
---metadata google-compute-default-region=$LOCATION,google-compute-default-zone=$ZONE
+--metadata google-compute-default-region=$REGION,google-compute-default-zone=$ZONE
 
 gcloud init   
 
@@ -81,17 +81,17 @@ artifactregistry.googleapis.com \
 
 gcloud artifacts repositories create $REPO \
 --repository-format=docker \
---location=${LOCATION} --description="Charis Docker repository"
+--location=${REGION} --description="Charis Docker repository"
 
 gcloud artifacts repositories list
-gcloud auth configure-docker ${LOCATION}-docker.pkg.dev
+gcloud auth configure-docker ${REGION}-docker.pkg.dev
 docker tag ej838639/charis:latest \
-${LOCATION}-docker.pkg.dev/${PROJECT_ID}/$REPO/charis:latest
-docker push ${LOCATION}-docker.pkg.dev/${PROJECT_ID}/$REPO/charis:latest
+${REGION}-docker.pkg.dev/${PROJECT_ID}/$REPO/charis:latest
+docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/$REPO/charis:latest
 
 docker tag ej838639/charis:0.1 \
-${LOCATION}-docker.pkg.dev/${PROJECT_ID}/$REPO/charis:0.1
-docker push ${LOCATION}-docker.pkg.dev/${PROJECT_ID}/$REPO/charis:0.1
+${REGION}-docker.pkg.dev/${PROJECT_ID}/$REPO/charis:0.1
+docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/$REPO/charis:0.1
 
 ```
 
@@ -120,13 +120,13 @@ gcloud compute firewall-rules list
 # prod
 gcloud compute instances create-with-container $INSTANCE_NAME \
 --machine-type e2-micro \
---container-image $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO/charis:latest \
+--container-image $REGION-docker.pkg.dev/$PROJECT_ID/$REPO/charis:latest \
 --tags http-server
 
 # dev
 gcloud compute instances create-with-container $INSTANCE_NAME \
 --machine-type e2-micro \
---container-image $LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO/charis:0.1 \
+--container-image $REGION-docker.pkg.dev/$PROJECT_ID/$REPO/charis:0.1 \
 --tags http-server,allow-app
 
 # note external IP for charis instance, or use the following command
