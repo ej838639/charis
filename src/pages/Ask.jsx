@@ -5,7 +5,7 @@ import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
 import Banner from '../partials/Banner';
 
-function SignIn() {
+function Ask() {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
 
@@ -27,10 +27,12 @@ function SignIn() {
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1">Ask a Question</h1>
+                <p className="text-xl text-gray-400">Do you still have questions after visiting "What is Mediation" and "FAQ" above?</p>
+                <p className="text-xl text-gray-400">Submit a question below and Charis Mediation will respond within 7 days.</p>
               </div>
 
               {/* Form */}
-              <div className="max-w-sm mx-auto">
+              <div className="max-w-lg mx-auto text-left">
                 {/* <form>
                   <div className="flex flex-wrap -mx-3">
                     <div className="w-full px-3">
@@ -52,10 +54,40 @@ function SignIn() {
                 <form>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
-                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="email">Email</label>
-                      <input id="email" type="email" className="form-input w-full text-gray-300" placeholder="you@yourcompany.com" required />
+                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="name">First Name</label>
+                      <input id="lastName" type="text" className="form-input w-full text-gray-300" placeholder="First Name" required />
                     </div>
                   </div>
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="name">Last Name</label>
+                      <input id="lastName" type="text" className="form-input w-full text-gray-300" placeholder="Last Name" required />
+                    </div>
+                  </div>                  
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="phone">Mobile Number (optional)</label>
+                      <input id="phone" type="number" className="form-input w-full text-gray-300" placeholder="xxx.xxx.xxxx"/>                   
+                    </div>
+                  </div>                  
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="email">Email</label>
+                      <input id="email" type="email" className="form-input w-full text-gray-300" placeholder="you@provider.com" required />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="name">Subject</label>
+                      <input id="subject" type="text" className="form-input w-full text-gray-300" placeholder="Subject for your question" required />
+                    </div>
+                  </div>                  
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="message">Message</label>
+                      <textarea id="message" type="text" className="form-input h-32 w-full text-gray-300" placeholder="Type your question here" required />
+                    </div>
+                  </div>  
                   {/* <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="password">Password</label>
@@ -96,4 +128,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Ask;
