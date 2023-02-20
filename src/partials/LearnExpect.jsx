@@ -21,7 +21,7 @@ function LearnExpect() {
               <path className="stroke-current text-purple-300" d="M43 42h-9M43 37h-9" strokeLinecap="square" strokeWidth="2" />
             </svg> */}
             <h4 className="h4 mb-2">Role of the Mediator</h4>
-            <p className="text-lg text-gray-400 text-center">Facilitate communication among the parties and write up agreements. Mediators do not decide the outcome of the dispute nor do they advoate for either party. In mediation, both parties negotiate for themselves.</p>
+            <p className="text-lg text-gray-400 text-center">Facilitate communication among the parties and write up agreements. Mediators do not decide the outcome of the dispute nor do they advocate for either party. In mediation, both parties negotiate for themselves.</p>
           </div>
 
           {/* 2nd item */}
