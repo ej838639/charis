@@ -1,0 +1,6 @@
+kind: compute#urlMap
+name: charis-lb-http-redirect2
+defaultUrlRedirect:
+  redirectResponseCode: MOVED_PERMANENTLY_DEFAULT
+  httpsRedirect: True
+description: HTTP to HTTPS redirect for the charis-lb2 forwarding rule

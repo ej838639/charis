@@ -1,7 +1,7 @@
 # Create Compute Engine instance and build docker container
 
 ## Console
-Project: (use project for charis)
+PROJECT_ID: (use project for charis)
 REGION: "us-west3"
 ZONE: "us-west3-c"
 REPO: "charis-docker-repo"
@@ -25,7 +25,7 @@ name: charis
 Machine type: e2-micro
 Container section: click Deploy Container. 
 Container image:
-$REGION-docker.pkg.dev/$PROJECT/$REPO/charis:latest
+$REGION-docker.pkg.dev/$PROJECT_ID/$REPO/charis:latest
 
 In search bar, search for "firewall rules"
 Click "Firewall: VPC network"
@@ -48,17 +48,24 @@ docker run \
 --name charis \
 -p 5173:5173 \
 -d \
-$REGION-docker.pkg.dev/$PROJECT/$REPO/charis:latest
+$REGION-docker.pkg.dev/$PROJECT_ID/$REPO/charis:latest
 ```
 
 ## CLI
 
 ### Setup environment
 ```shell
-export PROJECT_ID=$(gcloud config get-value project)
-export REGION="us-west3"
-export ZONE="us-west3-c"
-export REPO="charis-docker-repo"
+PROJECT_ID=$(gcloud config get-value project)
+REGION="us-west3"
+ZONE="us-west3-c"
+REPO="charis-docker-repo"
+PORT=5173
+
+# Development:
+INSTANCE_NAME="charis-app-dev"
+
+# Production:
+INSTANCE_NAME="charis-app-prod"
 
 gcloud compute project-info add-metadata \
 --metadata google-compute-default-region=$REGION,google-compute-default-zone=$ZONE
@@ -72,6 +79,10 @@ gcloud config get-value compute/zone
 
 ### Upload container to Artifact Repository
 ```shell
+# authorize docker
+gcloud auth configure-docker
+sudo gcloud components install docker-credential-gcr
+
 gcloud services list
 
 # if artifactregistry not activated, then run:
@@ -97,8 +108,6 @@ docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/$REPO/charis:0.1
 
 ### Create Compute Engine instance
 ```shell
-export INSTANCE_NAME="charis-app-dev"
-export INSTANCE_NAME="charis-app-prod"
 
 gcloud services list
 
@@ -107,13 +116,8 @@ gcloud services enable compute.googleapis.com
 
 gcloud compute firewall-rules create allow-app \
 --source-ranges 0.0.0.0/0 \
---allow tcp:5173 \
+--allow tcp:$PORT \
 --target-tags allow-app
-
-gcloud compute firewall-rules create allow-http \
---source-ranges 0.0.0.0/0 \
---allow tcp:80 \
---target-tags allow-http
 
 gcloud compute firewall-rules list
 
@@ -132,10 +136,12 @@ gcloud compute instances create-with-container $INSTANCE_NAME \
 # note external IP for charis instance, or use the following command
 gcloud compute instances list
 
+EXTERNAL_IP="[insert IP]"
+
 ```
 
 Wait about 5 minutes, and then open web link:
-http:$EXTERNAL_IP:5713
+http:$EXTERNAL_IP:$PORT
 
 Or check progress of instance: SSH to instance and run:
 ```sh
