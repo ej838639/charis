@@ -221,28 +221,6 @@ gcloud compute backend-services add-backend $BACKEND_SERVICE_NAME \
 gcloud compute url-maps create $URL_MAP_NAME \
 --default-service $BACKEND_SERVICE_NAME
 
-# See next section to create a URL map to forward HTTP to HTTPS load balancer
-
-# Create certificate
-gcloud compute ssl-certificates create $SSL_CERTIFICATE_NAME \
---project=$PROJECT_ID \
---global \
---description="Charis Mediation production website" \
---domains=$DOMAIN
-
-# Check certificate status
-gcloud compute ssl-certificates list \
---global
-
-gcloud compute ssl-certificates describe $SSL_CERTIFICATE_NAME \
---global \
---format="get(name, managed.status, managed.domainStatus)"
-
-# Create target proxy to route HTTPS traffic to URL map
-gcloud compute target-https-proxies create $TARGET_HTTPS_PROXY_NAME \
---ssl-certificates=$SSL_CERTIFICATE_NAME \
---url-map=$URL_MAP_NAME
-
 ```
 
 ### Create URL map to redirect HTTP traffic to HTTPS load balancer
@@ -280,8 +258,27 @@ gcloud compute target-http-proxies create $TARGET_HTTP_PROXY_NAME \
 
 ```
 
-### Continue Load Balancer Setup
 ```sh
+# Create certificate
+gcloud compute ssl-certificates create $SSL_CERTIFICATE_NAME \
+--project=$PROJECT_ID \
+--global \
+--description="Charis Mediation production website" \
+--domains=$DOMAIN
+
+# Check certificate status
+gcloud compute ssl-certificates list \
+--global
+
+gcloud compute ssl-certificates describe $SSL_CERTIFICATE_NAME \
+--global \
+--format="get(name, managed.status, managed.domainStatus)"
+
+# Create target proxy to route HTTPS traffic to URL map
+gcloud compute target-https-proxies create $TARGET_HTTPS_PROXY_NAME \
+--ssl-certificates=$SSL_CERTIFICATE_NAME \
+--url-map=$URL_MAP_NAME
+
 # Create forwarding rule to route incoming HTTP requests to the proxy
 gcloud compute forwarding-rules create $HTTP_FORWARDING_RULE_NAME \
 --load-balancing-scheme=EXTERNAL \
@@ -353,6 +350,13 @@ gcloud dns record-sets create $DOMAIN \
 --type="A" \
 --ttl="300" \
 --rrdatas=$STATIC_IP
+
+gcloud dns record-sets create $DOMAIN \
+--project=$PROJECT_ID \
+--zone=charis-zone \
+--type="A" \
+--ttl="300" \
+--rrdatas=35.190.79.222
 ```
 
 Check managed domain status for the Google-managed SSL certificate. At first the domain status will show "FAILED_NOT_VISIBLE" since the SSL certificate provisioning has not been completed for the domain. It usually takes a few hours, but it could take up to 72 hours. After it successfully completes, it will show ACTIVE for status and domainStatus. See the following section for troubleshooting steps.
@@ -539,7 +543,7 @@ gcloud compute addresses delete $STATIC_IP_NAME \
 gcloud run revisions list
 gcloud run revisions delete charis-app-prod3-00001-moh
 
-# Check Cloud run services
+# Delete Cloud run services
 gcloud run services delete $CLOUD_RUN_SERVICE_NAME
 
 
