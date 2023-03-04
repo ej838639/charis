@@ -4,7 +4,7 @@ function MissionVision() {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20">
+        <div className="pb-20">
 
           {/* Section 1 header */}
           <div className="max-w-3xl mx-auto text-center pb-12">
@@ -14,7 +14,7 @@ function MissionVision() {
 
           {/* Section 2 header */}
           <div className="max-w-6xl mx-auto text-left pb-12 md:pb-20">
-            <p className="text-xl text-gray-400">I mediate with individuals and families in conflict to help them reconcile their relationships and resolve issues based on Scriptural principles.</p>
+            <p className="text-xl text-gray-400">Charis Mediation mediates with individuals and families in conflict to help them reconcile their relationships and resolve issues based on Scriptural principles.</p>
             <br></br>
             <p className="text-xl text-gray-400">Through mediation Charis Mediation offers a structured process for the conversation. Going through a structured process can change the way people think about the conflict and how they communicate. Applying biblical peacemaking principles can change the way they see themselves and those they are in conflict with. Our goal is to offer grace, truth and hope as people explore their goals and options in pursuing peace with others.</p>
           </div>

@@ -6,6 +6,8 @@ import PageIllustration from '../partials/PageIllustration';
 import Banner from '../partials/Banner';
 
 function Ask() {
+
+  
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
 
@@ -51,37 +53,19 @@ function Ask() {
                   <div className="text-gray-400">Or, sign in with your email</div>
                   <div className="border-t border-gray-700 border-dotted grow ml-3" aria-hidden="true"></div>
                 </div> */}
-                <form>
+                <form action="https://public.herotofu.com/v1/376e3d10-b7f7-11ed-8d0b-95fdf80f9cee" method="post" accept-charset="UTF-8">
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
-                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="name">First Name</label>
-                      <input id="lastName" type="text" className="form-input w-full text-gray-300" placeholder="First Name" required />
+                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="name">Name</label>
+                      <input id="lastName" type="text" className="form-input w-full text-gray-300" name="name" placeholder="Your Name" required />
                     </div>
-                  </div>
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="name">Last Name</label>
-                      <input id="lastName" type="text" className="form-input w-full text-gray-300" placeholder="Last Name" required />
-                    </div>
-                  </div>                  
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="phone">Mobile Number (optional)</label>
-                      <input id="phone" type="number" className="form-input w-full text-gray-300" placeholder="xxx.xxx.xxxx"/>                   
-                    </div>
-                  </div>                  
+                  </div>                            
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="email">Email</label>
-                      <input id="email" type="email" className="form-input w-full text-gray-300" placeholder="you@provider.com" required />
+                      <input id="email" type="email" className="form-input w-full text-gray-300" name="Email" placeholder="you@provider.com" required />
                     </div>
-                  </div>
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="name">Subject</label>
-                      <input id="subject" type="text" className="form-input w-full text-gray-300" placeholder="Subject for your question" required />
-                    </div>
-                  </div>                  
+                  </div>              
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="message">Message</label>
