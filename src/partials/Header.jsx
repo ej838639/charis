@@ -102,10 +102,10 @@ function Header() {
                   <Link to="/faq" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">FAQ</Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center">Ask a question</Link>
+                  <Link to="/ask" className="flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center">Ask a question</Link>
                 </li>
                 <li>
-                  <Link to="/submit" className="font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out">Request an Intake</Link>
+                  <Link to="/request" className="font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out">Request an Intake</Link>
                 </li>
               </ul>
             </nav>

@@ -55,26 +55,38 @@ const AskForm = () => {
                   <div className="max-w-2xl mx-auto px-4 sm:px-6">
                     <div className="flex flex-wrap -mx-3 mb-4">
                       <div className="w-full px-3">
-                        <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="name">Name</label>
-                        <input id="lastName" type="text" className="form-input w-full text-gray-300" name="name" placeholder="Your Name" required />
+                        <label className="block text-gray-300 text-sm font-medium mb-1">
+                          Name
+                        </label>
+                        <input name="Name" placeholder="Your Name" type="text" required
+                          className="form-input w-full text-gray-300"/>
                       </div>
                     </div>                            
                     <div className="flex flex-wrap -mx-3 mb-4">
                       <div className="w-full px-3">
-                        <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="email">Email</label>
-                        <input id="email" type="email" className="form-input w-full text-gray-300" name="email" placeholder="you@provider.com" required />
+                        <label className="block text-gray-300 text-sm font-medium mb-1">
+                          Email
+                        </label>
+                        <input name="Email" placeholder="you@provider.com" type="email" required
+                          className="form-input w-full text-gray-300"/>
                       </div>
                     </div>              
                     <div className="flex flex-wrap -mx-3 mb-4">
                       <div className="w-full px-3">
-                        <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="phone">Phone (optional)</label>
-                        <input id="phone" type="phone" className="form-input w-full text-gray-300" name="phone" placeholder="xxx.xxx.xxxx"/>
+                        <label className="block text-gray-300 text-sm font-medium mb-1">
+                          Phone (optional)
+                        </label>
+                        <input name="Phone" placeholder="xxx.xxx.xxxx" type="tel" pattern="[0-9]{3}.[0-9]{3}.[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                          className="form-input w-full text-gray-300"/>
                       </div>
                     </div>              
                     <div className="flex flex-wrap -mx-3 mb-4">
                       <div className="w-full px-3">
-                        <label className="block text-gray-300 text-sm font-medium mb-1" htmlFor="message">Message</label>
-                        <textarea id="message" type="text" className="form-input h-32 w-full text-gray-300" name="message" placeholder="Type your question here" required />
+                        <label className="block text-gray-300 text-sm font-medium mb-1">
+                          Question
+                        </label>
+                        <textarea name="Question" placeholder="Type your question here" type="text" required
+                          className="form-input h-32 w-full text-gray-300"/>
                       </div>
                     </div>  
 

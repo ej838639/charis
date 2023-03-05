@@ -5,11 +5,9 @@ function LearnMediation() {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20 border-t border-gray-800">
-
           {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h2 mb-4">FAQ</h1>
+          <div className="max-w-3xl mx-auto text-center  pb-12 md:pb-16 pt-32 md:pt-40">
+            <h1 className="h1 mb-4">FAQ</h1>
             <p className="text-xl text-gray-400">Common questions about mediation.</p>
           </div>
 
@@ -101,7 +99,6 @@ function LearnMediation() {
             </div>
 
           </div>
-        </div>
       </div>
     </section>
   );
