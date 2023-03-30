@@ -19,8 +19,8 @@ function HeroHome() {
           <svg className="max-w-full" width="564" height="552" viewBox="0 0 564 552" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="illustration-02" x1="-3.766" y1="300.204" x2="284.352" y2="577.921" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#5D5DFF" stopOpacity=".01" />
-                <stop offset="1" stopColor="#5D5DFF" stopOpacity=".32" />
+                <stop stopColor="#FFFFFF" stopOpacity=".01" />
+                <stop offset="1" stopColor="#FFFFFF" stopOpacity=".32" />
               </linearGradient>
             </defs>
             <path
@@ -39,11 +39,12 @@ function HeroHome() {
             <h1 className="h1 mb-4" data-aos="fade-up">
             Pursuing peace in relationship with compassion and curiosity.
             </h1>
-            <p className="text-xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="200">
+            <div className="text-xl text-white-900" data-aos="fade-up" data-aos-delay="200">
             Charis Mediation uses faith-based principles to help people reconcile their relationships. 
-            <br></br>
+            </div>
+            <div className="text-xl text-white-900" data-aos="fade-up" data-aos-delay="200">
             We value Compassion, Curiosity, Hope, and Relationship.
-            </p>
+            </div>
             {/* <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
                 <a className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">
@@ -85,7 +86,7 @@ function HeroHome() {
                   </defs>
                   <circle fill="url(#a)" cx="44" cy="44" r="44" />
                   <path
-                    className="fill-current text-purple-600"
+                    className="fill-current text-green-600"
                     d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"
                   />
                 </svg>

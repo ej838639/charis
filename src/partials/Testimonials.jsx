@@ -13,25 +13,25 @@ function Testimonials() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2 mb-4">What people are saying about us</h2>
-            <p className="text-xl text-gray-400">Here are some experiences from people who have worked with us.</p>
+            <p className="text-xl text-white-900">Here are some experiences from people who have worked with us.</p>
           </div>
 
           {/* Testimonials */}
-          <div className="max-w-sm mx-auto grid gap-8 lg:grid-cols-1 lg:gap-6 items-start lg:max-w-sm">
+          <div className="max-w-sm mx-auto grid gap-8 lg:grid-cols-2 lg:gap-6 items-start lg:max-w-2xl">
 
             {/* 1st testimonial */}
-            <div className="flex flex-col h-full p-6 bg-gray-800" data-aos="fade-up">
-              <div>
-                {/* <div className="relative inline-flex flex-col mb-4">
-                  <img className="rounded-full" src={TestimonialImage01} width="48" height="48" alt="Testimonial 01" />
-                    <svg className="absolute top-0 right-0 -mr-3 w-6 h-5 fill-current text-purple-600" viewBox="0 0 24 20" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0 13.517c0-2.346.611-4.774 1.833-7.283C3.056 3.726 4.733 1.648 6.865 0L11 2.696C9.726 4.393 8.777 6.109 8.152 7.844c-.624 1.735-.936 3.589-.936 5.56v4.644H0v-4.531zm13 0c0-2.346.611-4.774 1.833-7.283 1.223-2.508 2.9-4.586 5.032-6.234L24 2.696c-1.274 1.697-2.223 3.413-2.848 5.148-.624 1.735-.936 3.589-.936 5.56v4.644H13v-4.531z" />
-                    </svg>
-                </div> */}
-              </div>
-              <blockquote className="text-lg text-gray-400 grow">— My time working with Anita was one of the most if not the most impactful experiences of my life. She provided a safe place every time we talked, she listened with genuine curiosity and offered meaningful insight. Her desire to keep Jesus as the foundation of everything we talked about was refreshing and encouraging. I am so thankful for our time together! I strongly recommend going to see Anita!</blockquote>
+            <div className="flex flex-col h-full p-6 bg-black-900" data-aos="fade-up">
+              <blockquote className="text-lg text-gray-200 grow">— My time working with Anita was one of the most if not the most impactful experiences of my life. She provided a safe place every time we talked, she listened with genuine curiosity and offered meaningful insight. Her desire to keep Jesus as the foundation of everything we talked about was refreshing and encouraging. I am so thankful for our time together! I strongly recommend going to see Anita!</blockquote>
               <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
-                <cite className="text-gray-200 not-italic">Sarah</cite> - <a className="text-purple-600">Seattle, WA</a>
+                <cite className="text-green-600 not-italic">Sarah</cite> | <a className="text-green-600">Client</a> | <a className="text-green-600">Seattle, WA</a>
+              </div>
+            </div>
+
+            {/* 2nd testimonial */}
+            <div className="flex flex-col h-full p-6 bg-black-900" data-aos="fade-up">
+              <blockquote className="text-lg text-gray-200 grow">— Anita is one of my most cherished colleagues and friends. I can attest that her strong faith does indeed generate her values and behavior. She is hardworking, authentic and is a true peacemaker. She brings patience and a deep kindness to her work and is a joy to know.</blockquote>
+              <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
+                <cite className="text-green-600 not-italic">Gini Ann</cite> | <a className="text-green-600">Mediator</a> | <a className="text-green-600">Seattle, WA</a>
               </div>
             </div>
 

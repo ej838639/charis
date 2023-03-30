@@ -54,23 +54,23 @@ function Header() {
             {/* Desktop menu links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">About us</Link>
+                <Link to="/about" className="text-white-900 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">About us</Link>
               </li>
               <li>
-                <Link to="/learn" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">What is Mediation</Link>
+                <Link to="/learn" className="text-white-900 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">What is Mediation</Link>
               </li>
               <li>
-                <Link to="/faq" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">FAQ</Link>
+                <Link to="/faq" className="text-white-900 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">FAQ</Link>
               </li>
             </ul>
 
             {/* Button links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Link to="/ask" className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Ask a question</Link>
+                <Link to="/ask" className="font-medium text-white-900 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out">Ask a question</Link>
               </li>
               <li>
-                <Link to="/request" className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3">Request an Intake</Link>
+                <Link to="/request" className="btn-sm text-white bg-black-900 hover:bg-gray-700 ml-3">Request an Intake</Link>
               </li>
             </ul>
 
@@ -93,19 +93,19 @@ function Header() {
             <nav id="mobile-nav" ref={mobileNav} className="absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out" style={mobileNavOpen ? { maxHeight: mobileNav.current.scrollHeight, opacity: 1 } : { maxHeight: 0, opacity: .8 } }>
               <ul className="bg-gray-800 px-4 py-2">
                 <li>
-                  <Link to="/about" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">About us</Link>
+                  <Link to="/about" className="text-white-900 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">About us</Link>
                 </li>
                 <li>
-                  <Link to="/learn" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">What is Mediation</Link>
+                  <Link to="/learn" className="text-white-900 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">What is Mediation</Link>
                 </li>
                 <li>
-                  <Link to="/faq" className="text-gray-300 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">FAQ</Link>
+                  <Link to="/faq" className="text-white-900 hover:text-gray-200 px-4 py-2 flex items-center transition duration-150 ease-in-out">FAQ</Link>
                 </li>
                 <li>
-                  <Link to="/ask" className="flex font-medium w-full text-purple-600 hover:text-gray-200 py-2 justify-center">Ask a question</Link>
+                  <Link to="/ask" className="flex font-medium w-full text-white-900 hover:text-gray-200 py-2 justify-center">Ask a question</Link>
                 </li>
                 <li>
-                  <Link to="/request" className="font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded-sm text-white bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out">Request an Intake</Link>
+                  <Link to="/request" className="font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded-sm text-white bg-black-900 hover:bg-gray-700 transition duration-150 ease-in-out">Request an Intake</Link>
                 </li>
               </ul>
             </nav>

@@ -3,13 +3,13 @@ import React from 'react';
 function FeaturesBlocks() {
   return (
     <section>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="bg-black-900 max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4">You need a space to feel heard and considered as you figure out how to move forward in conflict.</h2>
-            <p className="text-xl text-gray-400">Charis Mediation offers a grace filled, structured process based on faith-based principles to help people reconcile their relationships. Here are our services.</p>
+            <h2 className="text-gray-200 h2 mb-4">Our services provide an environment to move forward in conflict</h2>
+            <p className="text-xl text-gray-100">Charis Mediation offers a grace filled, structured process based on faith-based principles to help people reconcile their relationships</p>
           </div>
 
           {/* Items */}
@@ -22,8 +22,9 @@ function FeaturesBlocks() {
                 <path className="stroke-current text-purple-100" d="M30 39.313l-4.18 2.197L27 34.628l-5-4.874 6.91-1.004L32 22.49l3.09 6.26L42 29.754l-3 2.924" strokeLinecap="square" strokeWidth="2" fill="none" fillRule="evenodd" />
                 <path className="stroke-current text-purple-300" d="M43 42h-9M43 37h-9" strokeLinecap="square" strokeWidth="2" />
               </svg> */}
-              <h4 className="h4 mb-2">Coaching</h4>
-              <p className="text-lg text-gray-400 text-center">One on one coaching over multiple sessions to create a plan to deal with conflict, while also exploring biblical principles of confession, forgiveness, loving confrontation and self examination according to scripture.</p>
+              {/* <h4 className="h4 text-gray-200 mb-2">Coaching</h4> */}
+              <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Coaching</h4>
+              <p className="text-lg text-gray-100 text-center">One on one coaching over multiple sessions to create a plan to deal with conflict, while also exploring biblical principles of confession, forgiveness, loving confrontation and self examination according to scripture.</p>
             </div>
 
             {/* 2nd item */}
@@ -33,8 +34,9 @@ function FeaturesBlocks() {
                 <path className="stroke-current text-purple-100" strokeWidth="2" strokeLinecap="square" d="M21 23h22v18H21z" fill="none" fillRule="evenodd" />
                 <path className="stroke-current text-purple-300" d="M26 28h12M26 32h12M26 36h5" strokeWidth="2" strokeLinecap="square" />
               </svg> */}
-              <h4 className="h4 mb-2">Mediation</h4>
-              <p className="text-lg text-gray-400 text-center">Facilitate conversation following a structured process over several hours or all day to reach a resolution of substantive  issues. Mediation can be used for divorce, parenting plans, business disagreements etc.</p>
+              {/* <h4 className="h4 text-gray-200 mb-2">Mediation</h4> */}
+              <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Mediation</h4>
+              <p className="text-lg text-gray-100 text-center">Facilitate conversation following a structured process over several hours or all day to reach a resolution of substantive  issues. Mediation can be used for divorce, parenting plans, business disagreements etc.</p>
             </div>
 
             {/* 3rd item */}
@@ -44,9 +46,10 @@ function FeaturesBlocks() {
                 <path className="stroke-current text-purple-100" strokeWidth="2" strokeLinecap="square" d="M21 23h22v18H21z" fill="none" fillRule="evenodd" />
                 <path className="stroke-current text-purple-300" d="M26 28h12M26 32h12M26 36h5" strokeWidth="2" strokeLinecap="square" />
               </svg> */}
-              <h4 className="h4 mb-2">Conciliation Process</h4>
-              <p className="text-lg text-gray-400 text-center">Conciliation is a multi-phased process over 3-5 days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and biblical self reflection. This process is grounded in the Gospel principles of Loving God first and foremost and loving others (Mark 12:30-31).
-              </p>
+              {/* <h4 className="h4 text-gray-200 mb-2">Conciliation Process</h4> */}
+              <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Conciliation Process</h4>
+              <p className="text-lg text-gray-100 text-center">Conciliation is a multi-phased process over 3-5 days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and biblical self reflection.</p>
+              {/* <p className="text-lg text-gray-100 text-center">Conciliation is a multi-phased process over 3-5 days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and biblical self reflection. This process is grounded in the Gospel principles of Loving God first and foremost and loving others (Mark 12:30-31).</p> */}
             </div>
           </div>
 
