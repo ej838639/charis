@@ -48,8 +48,8 @@ function FeaturesBlocks() {
               </svg> */}
               {/* <h4 className="h4 text-gray-200 mb-2">Conciliation Process</h4> */}
               <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Conciliation Process</h4>
-              <p className="text-lg text-gray-100 text-center">Conciliation is a multi-phased process over 3-5 days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and biblical self reflection.</p>
-              {/* <p className="text-lg text-gray-100 text-center">Conciliation is a multi-phased process over 3-5 days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and biblical self reflection. This process is grounded in the Gospel principles of Loving God first and foremost and loving others (Mark 12:30-31).</p> */}
+              <p className="text-lg text-gray-100 text-center">Reconciliation is a multi-phased process over 3-5 days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and biblical self reflection.</p>
+              {/* <p className="text-lg text-gray-100 text-center">Reconciliation is a multi-phased process over 3-5 days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and biblical self reflection. This process is grounded in the Gospel principles of Loving God first and foremost and loving others (Mark 12:30-31).</p> */}
             </div>
           </div>
 
