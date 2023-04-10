@@ -3,7 +3,7 @@ import React from 'react';
 function LearnExpect() {
   return (
     <section>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+      <div className="max-w-6xl mx-auto py-16 px-4 sm:px-6 relative">
         {/* Section header */}
         <div className="max-w-6xl mx-auto text-center pb-12 md:pb-16">
           <h1 className="h1 mb-4">What can I expect from a mediation?</h1>

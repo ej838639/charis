@@ -4,13 +4,13 @@ import AnitaAbout from '../images/AnitaAbout.jpg';
 function AboutAnita() {
   return (
     <section>
-      <div className="max-w-6xl mx-auto py-10 px-4 sm:px-6 relative">
+      <div className="max-w-6xl mx-auto pb-10 px-4 sm:px-6 relative">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 pt-32 md:pt-40">
             <h1 className="h1 mb-4">Get to know Anita</h1>
             <p className="p">Anita Johnson</p>
             <p className="p">MSW, Certified Mediator</p>
-            <p className="p">Lead Mediator and Conciliator for Charis Mediation</p>
+            <p className="p">Owner and Mediator for Charis Mediation</p>
           </div>
 
           {/* Items */}
@@ -26,7 +26,7 @@ function AboutAnita() {
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
                   <p className="p pb-6">Anita has a passion for reconciliation informed by Scriptural peacemaking principles. These principles reinforce her work by bringing her curiosity, compassion, and hope for healed relationships.</p>
-                  <p className="p pb-6">She received a Bachelor of Science in Psychology from George Fox University and a Master of Social Work from the University of Washington. Anita became a Certified Mediator through the King County Dispute Resolution Center in 2011 and the Washington Mediator Association in 2020. Before she opened her private practice, Anita was on staff at the King County Dispute Resolution Center from 2013 to 2020 working with their Court Mediation Programs that included running the training program for new court mediators. She mediated and supervised court mediators and coordinated with the Presiding Judge and court staff in King County District Court.</p>
+                  <p className="p pb-6">She received a Bachelor of Science in Psychology from George Fox University and a Master of Social Work from the University of Washington. Anita became a Certified Mediator through the King County Dispute Resolution Center in 2011 and the Washington Mediator Association in 2020. Before she founded Charis Mediation, Anita was on staff at the King County Dispute Resolution Center from 2013 to 2020 working with their Court Mediation Programs that included running the training program for new court mediators. She mediated and supervised court mediators and coordinated with the Presiding Judge and court staff in King County District Court.</p>
                 </div>
               </div>
             </div>

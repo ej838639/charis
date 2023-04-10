@@ -8,7 +8,7 @@ function LearnMediation() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 pt-32 md:pt-40">
             <h1 className="h1 mb-4">What is Mediation?</h1>
-            <p className="p">Learn how mediation might be the right fit for your situation.</p>
+            <p className="p">Learn how mediation might be the right fit for your situation</p>
           </div>
 
           {/* Items */}
@@ -25,7 +25,7 @@ function LearnMediation() {
               {/* Text */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                  <p className="p mb-4">Do you have a relationship that looks like these parrots? Do you want it to be different? Is it hard to see a path to a better relationship? Mediation could help you find a workable solution by helping you to communicate with each other. It encourages everyone to collaboratively solve a problem with solutions that meet everyone's needs. Mediation can help you feel heard. It can provide the peace and unity you need.</p>
+                  <p className="p mb-4">Do you want your relationships to be different? Is it hard to see a path to a better relationship? Mediation could help you find a workable solution by helping you to communicate with each other. It encourages everyone to collaboratively solve a problem with solutions that meet everyone's needs. Mediation can help you feel heard. It can provide the peace and unity you need.</p>
                 </div>
               </div>
             </div>

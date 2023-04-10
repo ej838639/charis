@@ -8,7 +8,7 @@ function ThankYou() {
 
   
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="bg-green-600 flex flex-col min-h-screen overflow-hidden">
 
       {/*  Site header */}
       <Header />
@@ -28,7 +28,7 @@ function ThankYou() {
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1">Thank You</h1>
-                <p className="text-xl text-gray-400">Thank you for subitting your question. Charis Mediation will respond within 7 days.</p>
+                <p className="p">Thank you for subitting your question. Charis Mediation will respond within 7 days.</p>
               </div>
 
             </div>

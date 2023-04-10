@@ -9,7 +9,7 @@ function MissionVision() {
           {/* Section 1 header */}
           <div className="max-w-3xl mx-auto text-center pb-12">
             <h2 className="h2 mb-4">Pursuing peace in relationship requires compassion, curiousity and listening</h2>
-            <p className="p">You need a space to fell heard and considered</p>
+            <p className="p">You need a space to feel heard and considered</p>
             <p className="p">as you figure out how to move forward in conflict</p>
           </div>
 
@@ -17,7 +17,7 @@ function MissionVision() {
           <div className="max-w-6xl mx-auto text-left pb-12 md:pb-20">
             <p className="p">Charis Mediation mediates with individuals and families in conflict to help them reconcile their relationships and resolve issues based on Scriptural principles.</p>
             <br></br>
-            <p className="p">Through mediation Charis Mediation offers a structured process for the conversation. Going through a structured process can change the way people think about the conflict and how they communicate. Applying Biblical peacemaking principles can change the way they see themselves and those they are in conflict with. Our goal is to offer grace, truth and hope as people explore their goals and options in pursuing peace with others.</p>
+            <p className="p">Charis Mediation offers a structured process for a reconciliation conversation. Going through a structured process can change the way people understand the conflict and how they communicate. Applying Biblical peacemaking principles can change the way they see themselves and those they are in conflict with. Our goal is to offer grace, truth and hope as people pursue peace in their relationships.</p>
           </div>
 
           {/* Items */}
