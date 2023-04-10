@@ -13,11 +13,11 @@ function Testimonials() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2 mb-4">What people are saying about us</h2>
-            <p className="text-xl text-white-900">Here are some experiences from people who have worked with us.</p>
+            <p className="p text-xl">Here are some experiences from people who have worked with us.</p>
           </div>
 
           {/* Testimonials */}
-          <div className="max-w-sm mx-auto grid gap-8 lg:grid-cols-2 lg:gap-6 items-start lg:max-w-2xl">
+          <div className="max-w-sm mx-auto grid gap-8 lg:grid-cols-3 lg:gap-6 items-start lg:max-w-4xl">
 
             {/* 1st testimonial */}
             <div className="flex flex-col h-full p-6 bg-black-900" data-aos="fade-up">
@@ -32,6 +32,14 @@ function Testimonials() {
               <blockquote className="text-lg text-gray-200 grow">— Anita is one of my most cherished colleagues and friends. I can attest that her strong faith does indeed generate her values and behavior. She is hardworking, authentic and is a true peacemaker. She brings patience and a deep kindness to her work and is a joy to know.</blockquote>
               <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
                 <cite className="text-green-600 not-italic">Gini Ann</cite> | <a className="text-green-600">Mediator</a> | <a className="text-green-600">Seattle, WA</a>
+              </div>
+            </div>
+
+            {/* 3rd testimonial */}
+            <div className="flex flex-col h-full p-6 bg-black-900" data-aos="fade-up">
+              <blockquote className="text-lg text-gray-200 grow">— Anita created a very safe space to share emotions, struggles and issues and provided many valuable tools and resources to help solve the problems. She shared many Biblical principles on confession and forgiveness. She shared several great learning modules that we can use in the future. She created a rapport that facilitated open sharing of emotions and issues which ultimately helped to resolve some conflicts.</blockquote>
+              <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
+                <cite className="text-green-600 not-italic">Jane</cite> | <a className="text-green-600">Client</a> | <a className="text-green-600">Cincinnati, OH</a>
               </div>
             </div>
 

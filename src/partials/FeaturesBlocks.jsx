@@ -8,8 +8,8 @@ function FeaturesBlocks() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="text-gray-200 h2 mb-4">Our services provide an environment to move forward in conflict</h2>
-            <p className="text-xl text-gray-100">Charis Mediation offers a grace filled, structured process based on faith-based principles to help people reconcile their relationships</p>
+            <h2 className="h2 gray-200">Our services provide an environment to move forward in conflict</h2>
+            <p2 className="p2">Charis Mediation offers a grace filled, structured process based on faith-based principles to help people reconcile their relationships</p2>
           </div>
 
           {/* Items */}
@@ -24,7 +24,7 @@ function FeaturesBlocks() {
               </svg> */}
               {/* <h4 className="h4 text-gray-200 mb-2">Coaching</h4> */}
               <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Coaching</h4>
-              <p className="text-lg text-gray-100 text-center">One on one coaching over multiple sessions to create a plan to deal with conflict, while also exploring biblical principles of confession, forgiveness, loving confrontation and self examination according to scripture.</p>
+              <p2 className="p2 text-center">One on one coaching over multiple sessions to create a plan to deal with conflict, while also exploring biblical principles of confession, forgiveness, loving confrontation and self examination according to scripture.</p2>
             </div>
 
             {/* 2nd item */}
@@ -36,7 +36,7 @@ function FeaturesBlocks() {
               </svg> */}
               {/* <h4 className="h4 text-gray-200 mb-2">Mediation</h4> */}
               <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Mediation</h4>
-              <p className="text-lg text-gray-100 text-center">Facilitate conversation following a structured process over several hours or all day to reach a resolution of substantive  issues. Mediation can be used for divorce, parenting plans, business disagreements etc.</p>
+              <p2 className="p2 text-center">Facilitated conversation following a structured process over several hours or all day to reach a resolution of substantive  issues. Mediation can be used for division of property, parenting plans, and business agreements.</p2>
             </div>
 
             {/* 3rd item */}
@@ -47,8 +47,8 @@ function FeaturesBlocks() {
                 <path className="stroke-current text-purple-300" d="M26 28h12M26 32h12M26 36h5" strokeWidth="2" strokeLinecap="square" />
               </svg> */}
               {/* <h4 className="h4 text-gray-200 mb-2">Conciliation Process</h4> */}
-              <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Conciliation Process</h4>
-              <p className="text-lg text-gray-100 text-center">Reconciliation is a multi-phased process over 3-5 days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and biblical self reflection.</p>
+              <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Reconciliation</h4>
+              <p2 className="p2 text-center">Reconciliation is a multi-phased process over multiple days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and Biblical self reflection.</p2>
               {/* <p className="text-lg text-gray-100 text-center">Reconciliation is a multi-phased process over 3-5 days to help parties reconcile a relationship. The focus is on biblical principles including confession, forgiveness, loving confrontation and biblical self reflection. This process is grounded in the Gospel principles of Loving God first and foremost and loving others (Mark 12:30-31).</p> */}
             </div>
           </div>

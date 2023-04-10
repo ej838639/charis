@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../utils/Modal';
 
-import CharisLogo from '../images/CharisIntroVideoImage.jpg';
+import CharisIntroVideoImage from '../images/CharisIntroVideoImage.jpg';
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
@@ -39,12 +39,12 @@ function HeroHome() {
             <h1 className="h1 mb-4" data-aos="fade-up">
             Pursuing peace in relationship with compassion and curiosity.
             </h1>
-            <div className="text-xl text-white-900" data-aos="fade-up" data-aos-delay="200">
-            Charis Mediation uses faith-based principles to help people reconcile their relationships. 
-            </div>
-            <div className="text-xl text-white-900" data-aos="fade-up" data-aos-delay="200">
+            <p className="p" data-aos="fade-up" data-aos-delay="200">
+            Charis Mediation uses faith-based principles to help people reconcile their relationships.
+            </p>
+            <p className="p" data-aos="fade-up" data-aos-delay="200">
             We value Compassion, Curiosity, Hope, and Relationship.
-            </div>
+            </p>
             {/* <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
                 <a className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="#0">
@@ -61,8 +61,8 @@ function HeroHome() {
 
           {/* Hero image */}
           <div>
-            <div className="relative flex justify-center items-center" data-aos="fade-up" data-aos-delay="200">
-              <img className="mx-auto" src={CharisLogo} width="1024" height="504" alt="Hero" />
+            <div className="relative flex justify-center items-end" data-aos="fade-up" data-aos-delay="200">
+              <img className="mx-auto" src={CharisIntroVideoImage} width="1024" height="504" alt="Hero" />
               <a
                 className="absolute group"
                 href="#0"

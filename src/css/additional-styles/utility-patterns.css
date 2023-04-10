@@ -15,6 +15,14 @@
     @apply text-2xl text-white-900 font-bold leading-snug tracking-tight;
 }
 
+.p {
+    @apply text-xl text-white-900
+}
+
+.p2 {
+  @apply text-xl text-gray-100
+}
+
 @screen md {
     .h1 {
         @apply text-5xl;

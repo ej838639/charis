@@ -7,7 +7,7 @@ function LearnExpect() {
         {/* Section header */}
         <div className="max-w-6xl mx-auto text-center pb-12 md:pb-16">
           <h1 className="h1 mb-4">What can I expect from a mediation?</h1>
-          <p className="text-xl text-gray-400">Mediation is a conversation between two or more people who disagree, led by a trained, neutral mediator.</p>
+          <p className="p">Mediation is a conversation between two or more people who disagree, led by a trained, neutral mediator.</p>
         </div>
 
         {/* Items */}
@@ -21,7 +21,7 @@ function LearnExpect() {
               <path className="stroke-current text-purple-300" d="M43 42h-9M43 37h-9" strokeLinecap="square" strokeWidth="2" />
             </svg> */}
             <h4 className="h4 mb-2">Role of the Mediator</h4>
-            <p className="text-lg text-gray-400 text-center">Facilitate communication among the parties and write up agreements. Mediators do not decide the outcome of the dispute nor do they advocate for either party. In mediation, both parties negotiate for themselves.</p>
+            <p className="p text-center">Facilitate communication among the parties and write up agreements. Mediators do not decide the outcome of the dispute nor do they advocate for either party. In mediation, both parties negotiate for themselves.</p>
           </div>
 
           {/* 2nd item */}
@@ -32,7 +32,7 @@ function LearnExpect() {
               <path className="stroke-current text-purple-300" d="M26 28h12M26 32h12M26 36h5" strokeWidth="2" strokeLinecap="square" />
             </svg> */}
             <h4 className="h4 mb-2">Good Faith</h4>
-            <p className="text-lg text-gray-400 text-center">Both parties have the sincere intention of trying to find a resolution. This includes a willingess to take proposals seriously, make reasonable counter proposals, and make good on their offers.</p>
+            <p className="p text-center">Both parties have the sincere intention of trying to find a resolution. This includes a willingess to take proposals seriously, make reasonable counter proposals, and make good on their offers.</p>
           </div>
 
           {/* 3rd item */}
@@ -43,7 +43,7 @@ function LearnExpect() {
               <path className="stroke-current text-purple-300" d="M26 28h12M26 32h12M26 36h5" strokeWidth="2" strokeLinecap="square" />
             </svg> */}
             <h4 className="h4 mb-2">Civil Conversation</h4>
-            <p className="text-lg text-gray-400 text-center">Cultivate an attitude of discovery and curiosity. Humanize the other party. Let them talk until they are finished. Explain back to them what you think they are going for. Acknowledge what you can, including any defensiveness. Clarify your position without minimizing theirs. 
+            <p className="p text-center">Cultivate an attitude of discovery and curiosity. Humanize the other party. Let them talk until they are finished. Explain back to them what you think they are going for. Acknowledge what you can, including any defensiveness. Clarify your position without minimizing theirs. 
             </p>
           </div>
         </div>

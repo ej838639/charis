@@ -23,7 +23,7 @@ const AskForm = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="bg-green-600 flex flex-col min-h-screen overflow-hidden">
 
     {/*  Site header */}
     <Header />
@@ -42,8 +42,8 @@ const AskForm = () => {
                 {/* Page header */}
                 <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                   <h1 className="h1">Ask a Question</h1>
-                  <p className="text-xl text-gray-400">Do you still have questions after visiting "What is Mediation" and "FAQ" above?</p>
-                  <p className="text-xl text-gray-400">Submit a question below and Charis Mediation will respond within 7 days.</p>
+                  <p className="p">Do you still have questions after visiting "What is Mediation" and "FAQ" above?</p>
+                  <p className="p">Submit a question below and Charis Mediation will respond within 7 days.</p>
                 </div>
 
                 <form
@@ -55,38 +55,38 @@ const AskForm = () => {
                   <div className="max-w-2xl mx-auto px-4 sm:px-6">
                     <div className="flex flex-wrap -mx-3 mb-4">
                       <div className="w-full px-3">
-                        <label className="block text-gray-300 text-sm font-medium mb-1">
+                        <label className="block text-white-900 text-sm font-medium mb-1">
                           Name
                         </label>
                         <input name="Name" placeholder="Your Name" type="text" required
-                          className="form-input w-full text-gray-300"/>
+                          className="form-input w-full placeholder-gray-200 text-white-900"/>
                       </div>
                     </div>                            
                     <div className="flex flex-wrap -mx-3 mb-4">
                       <div className="w-full px-3">
-                        <label className="block text-gray-300 text-sm font-medium mb-1">
+                        <label className="block text-white-900 text-sm font-medium mb-1">
                           Email
                         </label>
                         <input name="Email" placeholder="you@provider.com" type="email" required
-                          className="form-input w-full text-gray-300"/>
+                          className="form-input w-full placeholder-gray-200 text-white-900"/>
                       </div>
                     </div>              
                     <div className="flex flex-wrap -mx-3 mb-4">
                       <div className="w-full px-3">
-                        <label className="block text-gray-300 text-sm font-medium mb-1">
+                        <label className="block text-white-900 text-sm font-medium mb-1">
                           Phone (optional)
                         </label>
                         <input name="Phone" placeholder="xxx.xxx.xxxx" type="tel" pattern="[0-9]{3}.[0-9]{3}.[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-                          className="form-input w-full text-gray-300"/>
+                          className="form-input w-full placeholder-gray-200 text-white-900"/>
                       </div>
                     </div>              
                     <div className="flex flex-wrap -mx-3 mb-4">
                       <div className="w-full px-3">
-                        <label className="block text-gray-300 text-sm font-medium mb-1">
+                        <label className="block text-white-900 text-sm font-medium mb-1">
                           Question
                         </label>
                         <textarea name="Question" placeholder="Type your question here" type="text" required
-                          className="form-input h-32 w-full text-gray-300"/>
+                          className="form-input h-32 w-full placeholder-gray-200 text-white-900"/>
                       </div>
                     </div>  
 
@@ -121,7 +121,7 @@ const AskForm = () => {
                     <div className="flex flex-wrap -mx-3 mt-6">
                       <div className="w-full px-3">
                         <button
-                          className="btn text-white bg-purple-600 hover:bg-purple-700 w-full"
+                          className="btn text-white bg-black-900 hover:bg-gray-600 w-full"
                           type="submit"
                         >
                           Submit

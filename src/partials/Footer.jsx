@@ -41,7 +41,7 @@ function Footer() {
                 </ul>
                 <ul>
                   <li className="mb-1">
-                    <Link to="/learn" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">FAQ</Link>
+                    <Link to="/faq" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">FAQ</Link>
                   </li>
                 </ul>
               </div>
@@ -61,10 +61,10 @@ function Footer() {
                 <h6 className="text-gray-200 font-medium mb-1">Support</h6>
                 <ul>
                   <li className="mb-1">
-                    <Link to="#" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Ask a Question</Link>
+                    <Link to="/ask" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Ask a Question</Link>
                   </li>
                   <li className="mb-1">
-                    <Link to="#" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Request a Mediation</Link>
+                    <Link to="/request" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Request a Mediation</Link>
                   </li>
                 </ul>
               </div>
@@ -111,7 +111,7 @@ function Footer() {
             </ul> */}
 
             {/* Copyrights note */}
-            <div className="text-gray-400 text-sm mr-4">&copy; Cruip.com. All rights reserved.</div>
+            <div className="text-gray-400 text-sm mr-4">&copy; <a href="https://cruip.com/">Cruip.com </a>. All rights reserved.</div>
 
           </div>
 

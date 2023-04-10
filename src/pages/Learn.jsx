@@ -9,7 +9,7 @@ import Footer from '../partials/Footer';
 
 function Learn() {
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="bg-green-600 flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
       <Header />
 

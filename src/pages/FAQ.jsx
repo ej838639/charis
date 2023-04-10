@@ -8,7 +8,7 @@ import Footer from '../partials/Footer';
 
 function FAQ() {
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="bg-green-600 flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
       <Header />
 
