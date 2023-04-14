@@ -111,7 +111,7 @@ function Footer() {
             </ul> */}
 
             {/* Copyrights note */}
-            <div className="text-gray-400 text-sm mr-4">&copy; <a href="https://cruip.com/">Cruip.com </a>. All rights reserved.</div>
+            <div className="text-gray-400 text-sm mr-4">Website built using design from &copy; <a href="https://cruip.com/">Cruip.com </a>. All rights reserved.</div>
 
           </div>
 
