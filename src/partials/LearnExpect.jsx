@@ -91,7 +91,7 @@ function LearnExpect() {
             <div className="md:grid md:grid-cols-12 md:gap-6 items-center">
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="fade-up">
-                <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage05} width="540" height="405" alt="Features 03" />
+                <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage05} width="540" height="405" alt="Features 05" />
                 Photo by <a className="text-green-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/@tinaflour?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kristina Flour</a>
               </div>
               {/* Content */}
@@ -107,7 +107,7 @@ function LearnExpect() {
             <div className="md:grid md:grid-cols-12 md:gap-6 items-center">
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 rtl" data-aos="fade-up">
-                <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage06} width="540" height="405" alt="Features 04" />
+                <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage06} width="540" height="405" alt="Features 06" />
                 Photo by <a className="text-green-600 hover:text-green-200 transition duration-150 ease-in-out" href="https://unsplash.com/@priscilladupreez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Priscilla Du Preez</a>
               </div>
               {/* Content */}

@@ -47,14 +47,14 @@ function Footer() {
               </div>
 
               {/* 3rd block */}
-              <div className="text-sm">
+              {/* <div className="text-sm">
                 <h6 className="text-gray-200 font-medium mb-1">For Mediators</h6>
                 <ul>
                   <li className="mb-1">
                     <Link to="/network" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Mediator Networking</Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
 
               {/* 4th block */}
               <div className="text-sm">
@@ -111,7 +111,7 @@ function Footer() {
             </ul> */}
 
             {/* Copyrights note */}
-            <div className="text-gray-400 text-sm mr-4">Website built using design from &copy; <a href="https://cruip.com/">Cruip.com </a>. All rights reserved.</div>
+            <div className="text-gray-400 text-sm mr-4">Website built using a design from &copy; <a href="https://cruip.com/">Cruip.com </a> -- All rights reserved.</div>
 
           </div>
 
