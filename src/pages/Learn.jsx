@@ -4,6 +4,7 @@ import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
 import LearnMediation from '../partials/LearnMediation';
 import LearnExpect from '../partials/LearnExpect';
+import LearnPrinciples from '../partials/LearnPrinciples';
 // import Banner from '../partials/Banner';
 import Footer from '../partials/Footer';
 
@@ -23,6 +24,7 @@ function Learn() {
         {/*  Page sections */}
         <LearnMediation />
         <LearnExpect />
+        <LearnPrinciples />
       </main>
 
       {/* <Banner /> */}
