@@ -9,7 +9,9 @@ function LearnPrinciples() {
           {/* Section header */}
           <div className="max-w-4xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2 gray-200">Biblical Peacemaking Principles</h2>
-            <p2 className="p2">Here are some Biblical peacemaking principles that are used in Christian mediation.</p2>
+            <p2 className="p2">There are many Biblical peacemaking principles that are used in Christian mediation.</p2>
+            <br></br>
+            <p2 className="p2">Here are some examples.</p2>
           </div>
 
           {/* Line 1 */}
@@ -54,7 +56,7 @@ function LearnPrinciples() {
           </div>
 
           {/* Line 2 */}
-          <div className="max-w-sm mx-auto grid gap-8 md:grid-cols-1 lg:grid-cols-3 lg:gap-16 items-start md:max-w-2xl lg:max-w-none" data-aos-id-blocks>
+          <div className="max-w-sm grid gap-8 md:grid-cols-1 lg:grid-cols-3 lg:gap-16 items-start md:max-w-2xl lg:max-w-none" data-aos-id-blocks>
 
             {/* 4th item */}
             <div className="relative flex flex-col items-center" data-aos="fade-up" data-aos-anchor="[data-aos-id-blocks]">
@@ -64,7 +66,7 @@ function LearnPrinciples() {
                 <path className="stroke-current text-purple-300" d="M43 42h-9M43 37h-9" strokeLinecap="square" strokeWidth="2" />
               </svg> */}
               {/* <h4 className="h4 text-gray-200 mb-2">Coaching</h4> */}
-              <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-black-900 bg-gray-100 rounded-full mb-4">Confess</h4>
+              <h4 className="h4 inline-flex font-semibold py-1 px-3 m-2 text-black-900 bg-gray-100 rounded-full mb-4">Confess and Forgive</h4>
               <p2 className="p2 text-center">Practicing Biblical confession and forgiveness where appropriate. (Eph 4:32, Col 3:13, Matt 18:21-35, James 5:16, 1 John 1:9)</p2>
             </div>
 
