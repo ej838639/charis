@@ -37,7 +37,7 @@ const AskForm = () => {
           </div>
 
           <section className="relative">
-              <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+              <div className="pt-32 pb-12 px-4 sm:px-6 md:pt-40 md:pb-20">
 
                 {/* Page header */}
                 <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
@@ -52,7 +52,7 @@ const AskForm = () => {
                   method="POST"
                   target="_blank"
                 >
-                  <div className="max-w-2xl mx-auto px-4 sm:px-6">
+                  <div className="max-w-2xl mx-auto">
                     <div className="flex flex-wrap -mx-3 mb-4">
                       <div className="w-full px-3">
                         <label className="block text-white-900 text-sm font-medium mb-1">
@@ -117,7 +117,7 @@ const AskForm = () => {
                       />
                     </div> */}
                   </div>
-                  <div className="max-w-sm mx-auto px-4 sm:px-6">
+                  <div className="max-w-sm mx-auto">
                     <div className="flex flex-wrap -mx-3 mt-6">
                       <div className="w-full px-3">
                         <button

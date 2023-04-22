@@ -12,8 +12,8 @@ function Testimonials() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4">What people are saying about us</h2>
-            <p className="p text-xl">Here are some experiences from people who have worked with us.</p>
+            <h2 className="h2 pb-4">What people are saying about us</h2>
+            <h4 className="h4 text-xl">Here are some experiences from people who have worked with us</h4>
           </div>
 
           {/* Testimonials */}

@@ -36,14 +36,14 @@ function HeroHome() {
         <div className="relative pt-32 pb-10 md:pt-40 md:pb-16">
           {/* Section header */}
           <div className="max-w-6xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h1 mb-4" data-aos="fade-up">
-            Pursuing peace in relationship with compassion and curiosity.
+            <h1 className="h1 pb-4" data-aos="fade-up">
+            Pursuing peace in relationship with compassion and curiosity
             </h1>
+            <h4 className="h4 pb-4" data-aos="fade-up" data-aos-delay="200">
+            Charis Mediation uses faith-based principles to help people reconcile their relationships
+            </h4>
             <p className="p" data-aos="fade-up" data-aos-delay="200">
-            Charis Mediation uses faith-based principles to help people reconcile their relationships.
-            </p>
-            <p className="p" data-aos="fade-up" data-aos-delay="200">
-            We value Compassion, Curiosity, Hope, and Relationship.
+            We value Compassion, Curiosity, Hope, and Relationship
             </p>
             {/* <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">

@@ -8,8 +8,9 @@ function FeaturesBlocks() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 gray-200">Our services provide an environment to move forward in conflict</h2>
-            <p2 className="p2">Charis Mediation offers a grace filled, structured process based on faith-based principles to help people reconcile their relationships</p2>
+            <h2 className="h2 pb-4 gray-200">Our services provide an environment to move forward in conflict</h2>
+            <h4 className="h4 pb-4">Charis Mediation offers a grace filled, structured process</h4>
+            <p className="p">It is based on faith-based principles to help people reconcile their relationships</p>
           </div>
 
           {/* Items */}

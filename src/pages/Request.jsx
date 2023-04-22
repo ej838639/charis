@@ -23,7 +23,7 @@ const RequestForm = () => {
   }
 
   return (
-    <div className="bg-green-600 flex flex-col min-h-screen overflow-hidden">
+    <div className="bg-green-600 flex flex-col px-4 sm:px-6 min-h-screen overflow-hidden">
 
     {/*  Site header */}
     <Header />

@@ -3,15 +3,13 @@ import React from 'react';
 function LearnPrinciples() {
   return (
     <section>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="py-12 md:py-20">
 
           {/* Section header */}
           <div className="max-w-4xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2 gray-200">Biblical Peacemaking Principles</h2>
-            <p2 className="p2">There are many Biblical peacemaking principles that are used in Christian mediation.</p2>
-            <br></br>
-            <p2 className="p2">Here are some examples.</p2>
+            <p2 className="p2">There are examples of Biblical peacemaking principles used in Christian mediation</p2>
           </div>
 
           {/* Line 1 */}

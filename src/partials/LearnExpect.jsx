@@ -14,10 +14,11 @@ function LearnExpect() {
         <div className="py-12 md:py-20 border-t border-gray-800">
 
           {/* Section header */}
-          <div className="max-w-4xl mx-auto text-center pb-12 md:pb-16">
+          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             {/* <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Get to know us</div> */}
             <h2 className="h2 mb-4">What can I expect from a mediation?</h2>
-            <p className="p">Mediation uses an objective facilitator to walk people through a structured conversation that allows them to explore new ways to address their conflict and potential solutions.</p>
+            <h4 className="h4 pb-4">An objective facilitator using a structured conversation</h4>
+            <p className="p">to explore new ways to address the conflict and new solutions</p>
           </div>
 
           {/* Items */}
@@ -97,7 +98,7 @@ function LearnExpect() {
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
                 <div className="md:pr-4 lg:pr-12 xl:pr-16">
-                  <h3 className="h3 mb-3">Mediation Process and Confidentiality</h3>
+                  <h3 className="h3 mb-3">Process and Confidentiality</h3>
                   <p className="p mb-4">At Charis Mediation we have seen how effective and beneficial the mediation process is for helping individuals pursue peace. When going through the intake process we discuss the steps of the process in detail before parties commit to mediation. According to the Washington Mediation Act and the Rules and Procedures for Christian Conciliation, the mediation process is private and confidentiality is maintained unless there is a concern about the ongoing safety of a vulnerable person or criminal activity.</p>
                 </div>
               </div>

@@ -14,8 +14,8 @@ function FeaturesZigzag() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             {/* <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-gray-100 bg-green-600 rounded-full mb-4">Get to know us</div> */}
-            <h2 className="h2 mb-4">Our values foster a safe space for you to feel heard as we mediate the conflict</h2>
-            <p className="p">Compassion, Curiosity, Hope, Relationship</p>
+            <h2 className="h2 pb-4">Our values foster a safe space for you to feel heard as we mediate the conflict</h2>
+            <h4 className="h4">Compassion, Curiosity, Hope, Relationship</h4>
           </div>
 
           {/* Items */}

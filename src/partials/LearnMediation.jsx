@@ -1,5 +1,5 @@
 import React from 'react';
-import Image01 from '../images/nikola-johnny-mirkovic-5GzlumDswnM-unsplash.jpg';
+import Image01 from '../images/nikola-johnny-mirkovic-5GzlumDswnM-unsplash-v2.jpg';
 
 function LearnMediation() {
   return (
