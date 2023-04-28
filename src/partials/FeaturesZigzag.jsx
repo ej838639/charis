@@ -42,7 +42,7 @@ function FeaturesZigzag() {
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 rtl" data-aos="fade-up">
                 <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage02} width="540" height="405" alt="Features 02" />
-                {/* Photo by <a className="text-green-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/@garybpt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Gary Butterfield</a> */}
+                Photo by <a className="text-green-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://www.istockphoto.com/photo/two-playful-kittens-gm1134696734-301610081">Nils Jacobi</a> licensed on iStock
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">
