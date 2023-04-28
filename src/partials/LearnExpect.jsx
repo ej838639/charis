@@ -4,8 +4,8 @@ import FeatImage01 from '../images/nick-fewings-mki48azlI2k-unsplash.jpg';
 import FeatImage02 from '../images/etienne-boulanger-erCPgyXNlto-unsplash.jpg';
 import FeatImage03 from '../images/chris-liverani-9cd8qOgeNIY-unsplash.jpg';
 import FeatImage04 from '../images/bree-anne-GaqsAMia7ck-unsplash-v2.jpg';
-import FeatImage05 from '../images/chris-lawton-5IHz5WhosQE-unsplash.jpg';
-import FeatImage06 from '../images/priscilla-du-preez-xM4wUnvbCKk-unsplash-v2.jpg';
+import FeatImage05 from '../images/old-keys-on-door.jpg';
+import FeatImage06 from '../images/Bored-panda_Valerie_photo-1-58bd916612ea7__880.jpg';
 
 function LearnExpect() {
   return (
@@ -93,7 +93,7 @@ function LearnExpect() {
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="fade-up">
                 <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage05} width="540" height="405" alt="Features 05" />
-                Photo by <a className="text-green-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/@chrislawton?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Chris Lawton</a>
+                Photo by <a className="text-green-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://voldie81.tumblr.com/post/183216926338">voldie81</a>
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
@@ -109,7 +109,7 @@ function LearnExpect() {
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 rtl" data-aos="fade-up">
                 <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage06} width="540" height="405" alt="Features 06" />
-                Photo by <a className="text-green-600 hover:text-green-200 transition duration-150 ease-in-out" href="https://unsplash.com/@priscilladupreez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Priscilla Du Preez</a>
+                Photo by <a className="text-green-600 hover:text-green-200 transition duration-150 ease-in-out" href="https://www.boredpanda.com/wildlife-photography-valerie-derome-masse/?media_id=730563">Valérie Derome-Massé</a>
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">

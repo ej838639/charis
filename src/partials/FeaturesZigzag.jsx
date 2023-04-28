@@ -1,9 +1,9 @@
 import React from 'react';
 
-import FeatImage01 from '../images/dave-lowe-vI9wPJ8L5MA-unsplash.jpg';
-import FeatImage02 from '../images/gary-butterfield-YG8rZ323UsU-unsplash.jpg';
+import FeatImage01 from '../images/sunset-men-silhouettes-helping-1807524.jpg';
+import FeatImage02 from '../images/curious-cat.jpg';
 import FeatImage03 from '../images/carl-hunley-jr-kZ_GzLAy4WM-unsplash.jpg';
-import FeatImage04 from '../images/etienne-girardet-RuMqg2cs-M0-unsplash.jpg';
+import FeatImage04 from '../images/friendship-line-sunset.jpg';
 
 function FeaturesZigzag() {
   return (
@@ -25,7 +25,7 @@ function FeaturesZigzag() {
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1" data-aos="fade-up">
                 <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage01} width="540" height="405" alt="Features 01" />
-                Photo by <a className="text-green-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/@thelowedown?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dave Lowe</a> 
+                Photo by <a className="text-green-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://pixabay.com/users/sasint-3639875/">Sasint</a> 
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-right">
@@ -42,7 +42,7 @@ function FeaturesZigzag() {
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 rtl" data-aos="fade-up">
                 <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage02} width="540" height="405" alt="Features 02" />
-                Photo by <a className="text-green-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/@garybpt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Gary Butterfield</a>
+                {/* Photo by <a className="text-green-600 hover:text-gray-200 transition duration-150 ease-in-out" href="https://unsplash.com/@garybpt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Gary Butterfield</a> */}
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">
@@ -76,7 +76,7 @@ function FeaturesZigzag() {
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 rtl" data-aos="fade-up">
                 <img className="max-w-full mx-auto md:max-w-none h-auto" src={FeatImage04} width="540" height="405" alt="Features 04" />
-                Photo by <a className="text-green-600 hover:text-green-200 transition duration-150 ease-in-out" href="https://unsplash.com/@etiennegirardet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Etienne Girardet</a>
+                Photo by <a className="text-green-600 hover:text-green-200 transition duration-150 ease-in-out" href="https://www.pexels.com/photo/adventure-backlit-dawn-dusk-207896/">Pixabay</a>
               </div>
               {/* Content */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">
