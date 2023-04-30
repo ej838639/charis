@@ -2,8 +2,7 @@
   "name": "open-pro-react",
   "version": "0.1.0",
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },

@@ -4,15 +4,15 @@ import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
 import HeroHome from '../partials/HeroHome';
 import FeaturesBlocks from '../partials/FeaturesBlocks';
+import ServicesNote from '../partials/ServicesNote';
 import FeaturesZigZag from '../partials/FeaturesZigzag';
 import Testimonials from '../partials/Testimonials';
-import Newsletter from '../partials/Newsletter';
-import Banner from '../partials/Banner';
+// import Banner from '../partials/Banner';
 import Footer from '../partials/Footer';
 
 function Home() {
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="bg-green-600 w-full h-full flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
       <Header />
 
@@ -26,12 +26,13 @@ function Home() {
         {/*  Page sections */}
         <HeroHome />
         <FeaturesBlocks />
+        <ServicesNote />
         <FeaturesZigZag />
         <Testimonials />
-        <Newsletter />
+        {/* <Newsletter /> */}
       </main>
 
-      <Banner />
+      {/* <Banner /> */}
 
       {/*  Site footer */}
       <Footer />
