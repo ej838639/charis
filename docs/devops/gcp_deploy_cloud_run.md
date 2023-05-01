@@ -5,7 +5,9 @@ The reason for this choice is descrsibed in this repo at docs/madr/decisions/000
 
 The following assumes that a react app exists, Dockerfile exists, gcp is installed locally, a project is created, and a Custom Domain is built.
 - See docker.md in this folder to create the Dockerfile
-- See gcp_custom_domain.md in this folder to create a zone for a custom domain 
+- See gcp_custom_domain.md in this folder to create a zone for a custom domain
+
+See bottom of CLI on how to deploy an updated version of the app.
 
 Cloud Run Google doc
 https://cloud.google.com/run/docs/setup
@@ -165,7 +167,7 @@ gcloud builds submit \
 
 # Deploy
 gcloud run deploy $CLOUD_RUN_SERVICE_NAME \
---image gcr.io/$PROJECT_ID/$CLOUD_RUN_SERVICE_NAME \
+--image gcr.io/$PROJECT_ID/$CLOUD_RUN_SERVICE_NAME\:latest \
 --platform=managed \
 --allow-unauthenticated \
 --port=80 \
@@ -548,3 +550,29 @@ gcloud run services delete $CLOUD_RUN_SERVICE_NAME
 
 
 ```
+
+### Deploy revision of app
+
+```sh
+PROJECT_NAME="charis"
+PROJECT_ID="charis-377419"
+REGION="us-west3"
+CLOUD_RUN_SERVICE_NAME="charis-app-prod"
+
+# Create new build files
+npm run build
+
+# Build docker image and upload to Registry. Uses Dockerfile in folder where command is run.
+gcloud builds submit \
+--tag gcr.io/$PROJECT_ID/$CLOUD_RUN_SERVICE_NAME
+
+# Deploy
+gcloud run deploy $CLOUD_RUN_SERVICE_NAME \
+--image gcr.io/$PROJECT_ID/$CLOUD_RUN_SERVICE_NAME\:latest \
+--platform=managed \
+--allow-unauthenticated \
+--port=80 \
+--tag=$PROJECT_NAME
+
+```
+
