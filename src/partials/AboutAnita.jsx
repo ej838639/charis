@@ -9,7 +9,7 @@ function AboutAnita() {
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 pt-32 md:pt-40">
             <h1 className="h1 mb-4">Get to know Anita</h1>
             <h4 className="h4">Anita Johnson</h4>
-            <h4 className="h4">MSW, Certified Mediator</h4>
+            <h4 className="h4">MSW, Certified Mediator and Christian Conciliator</h4>
             <h4 className="h4">Owner and Mediator for Charis Mediation</h4>
           </div>
 
@@ -35,9 +35,9 @@ function AboutAnita() {
 
           {/* Bottom section */}
           <div className="max-w-6xl mx-auto text-left pt-6">
-            <p className="p pb-6">In addition, she was a part of the Veteran, Senior and Human Service Program using mediation and conflict coaching to strengthen housing stability. In 2020 Anita switched her focus to Biblical Peacemaking and is pursuing certification as a Christian Conciliator through the Institute for Christian Conciliation. This certification process includes in-depth education on peacemaking principles based on Scripture. She did several conciliation and coaching cases through Sound Conciliation LLC before starting her own practice.</p>
+            <p className="p pb-6">In addition, she was a part of the Veteran, Senior and Human Service Program using mediation and conflict coaching to strengthen housing stability. In 2020 Anita switched her focus to Biblical Peacemaking and is certified as a Christian Conciliator through the Institute for Christian Conciliation. This certification process included in-depth education on peacemaking principles based on Scripture. She did several conciliation and coaching cases through Sound Conciliation LLC before starting her own practice.</p>
             <p className="p pb-6">Anita wants to take her experience and offer a process to those in conflict in order to help them explore how biblical peacemaking principles apply to their unique circumstances and create a next step plan to pursue reconciliation.</p>
-            <p className="p pb-6">Anita and her husband Eric have been married since 1997 and have 2 young adult daughters. Their daughters are a delight but that doesn’t stop Anita from practicing her mediation skills on them. In her free time she enjoys long walks, watching movies, and enjoying a good cup of coffee with friends.</p>
+            <p className="p pb-6">Anita and her husband Eric have been married since 1997 and have 2 young adult kids. Their children are a delight but that doesn’t stop Anita from practicing her mediation skills on them. In her free time she enjoys long walks, watching movies, and enjoying a good cup of coffee with friends.</p>
           </div>
 
         </div>
