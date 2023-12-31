@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // import Dropdown from '../utils/Dropdown';
-import Logo from '../images/charis-blackbgd-whitetext.jpg';
+import Logo from '../images/charis-logo-black-new.jpg';
 
 function Header() {
 
@@ -33,7 +33,7 @@ function Header() {
 
   return (
     <header className="absolute w-full z-30">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 mt-4 sm:px-6">
         <div className="flex items-center justify-between h-20">
 
           {/* Site branding */}
