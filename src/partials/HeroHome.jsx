@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../utils/Modal';
 
-import CharisIntroVideoImage from '../images/CharisIntroVideoImage.jpg';
+import CharisIntroVideoImage from '../images/AnitaLandscape.jpg';
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
@@ -50,7 +50,7 @@ function HeroHome() {
           {/* Hero image */}
           <div>
             <div className="relative flex justify-center items-end" data-aos="fade-up" data-aos-delay="200">
-              <img className="mx-auto" src={CharisIntroVideoImage} width="1024" height="504" alt="Hero" />
+              <img className="mx-auto" src={CharisIntroVideoImage} alt="Hero" />
               <a
                 className="absolute group"
                 href="#0"
@@ -79,6 +79,11 @@ function HeroHome() {
                   />
                 </svg>
               </a>
+            </div>
+            <div>
+            <p className="p text-center" data-aos="fade-up" data-aos-delay="200">
+            (Click on play to meet Anita)
+            </p>
             </div>
 
             {/* Modal */}
