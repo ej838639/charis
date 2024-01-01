@@ -50,6 +50,7 @@ Name: charis-ssl
 Description: Charis Mediation production website
 Create mode: Create Google-managed certificate
 Domain 1: charismediation.org
+Domain 2: dev.charismediation.org
 Click Create
 
 ### Load Balancer with Cloud Run
@@ -153,14 +154,299 @@ Click create
 
 ## CLI
 
-### Reserve Static IP Address
-gcloud compute addresses create charis-ip-std \
---project=charis-377419 \
---description=Static\ IPv4\ address\ for\ charismediation.org\ using\ Standard\ Network\ Service\ Tier \
+### Setup for Cloud Run
+```sh
+PROJECT_NAME="charis"
+PROJECT_ID="charis-377419"
+REGION="us-west3"
+CLOUD_RUN_SERVICE_NAME="charis-app-prod2"
+SSL_CERTIFICATE_NAME="charis-ssl3"
+STATIC_IP_NAME="charis-ip2"
+STATIC_IP_NAME_STD="charis-ip-std"
+SERVERLESS_NEG_NAME="charis-neg2"
+URL_MAP_NAME="charis-lb-https2"
+URL_MAP_NAME_STD="charis-lb-https-std2"
+URL_MAP_REDIRECT_NAME="charis-lb-http-redirect2"
+URL_MAP_REDIRECT_NAME_STD="charis-lb-http-redirect-std2"
+TARGET_HTTPS_PROXY_NAME="charis-lb-target-https-proxy2"
+TARGET_HTTPS_PROXY_NAME_STD="charis-lb-target-https-proxy-std2"
+TARGET_HTTP_PROXY_NAME="charis-lb-target-http-proxy2"
+TARGET_HTTP_PROXY_NAME_STD="charis-lb-target-http-proxy-std2"
+HTTPS_FORWARDING_RULE_NAME="charis-lb-https2"
+HTTPS_FORWARDING_RULE_NAME_STD="charis-lb-https-std2"
+HTTP_FORWARDING_RULE_NAME="charis-lb-http-forwarding-rule2"
+HTTP_FORWARDING_RULE_NAME_STD="charis-lb-http-forwarding-rule-std2"
+BACKEND_SERVICE_NAME="charis-be2"
+DNS_ZONE="charis-zone2"
+DOMAIN="charismediation.org"
+DOMAINS="charismediation.org,dev.charismediation.org"
+
+# URL_MAP_NAME for HTTPS traffic
+# URL_MAP_REDIRECT_NAME for Redirect HTTP to HTTPS
+
+# Update gcloud cli version
+sudo gcloud components update
+# N to disable usage reporting
+
+# check current project
+gcloud config get-value project
+
+# if necessary, move to desired project. Avoids need to specify project in commands.
+gcloud config set project $PROJECT_ID
+
+# check default region and zone
+gcloud config get-value run/region
+
+# if unset, change region and zone. Avoids need to specify region in commands.
+gcloud config set run/region $REGION
+
+# check if Cloud Run and Cloud Build are enabled
+gcloud services list --enabled
+NAME                              TITLE
+run.googleapis.com                Cloud Run Admin API
+cloudbuild.googleapis.com         Cloud Build API
+
+# if not enabled run 
+gcloud services enable run.googleapis.com
+gcloud services enable cloudbuild.googleapis.com
+```
+
+### Deploy Cloud Run
+https://cloud.google.com/run/docs/deploying#command-line
+
+```sh
+# Build docker image and upload to Registry. Uses Dockerfile in folder where command is run.
+gcloud builds submit \
+--tag gcr.io/$PROJECT_ID/$CLOUD_RUN_SERVICE_NAME
+
+# Deploy
+gcloud run deploy $CLOUD_RUN_SERVICE_NAME \
+--image gcr.io/$PROJECT_ID/$CLOUD_RUN_SERVICE_NAME\:latest \
+--platform=managed \
+--allow-unauthenticated \
+--port=80 \
+--tag=$PROJECT_NAME
+
+```
+Note URL for Cloud Run deployment
+
+### Create Static IP
+https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address#gcloud
+
+```sh
+# Create static IP for Premium Network Access Tier
+gcloud compute addresses create $STATIC_IP_NAME \
+--project=$PROJECT_ID \
+--network-tier=PREMIUM \
+--ip-version=IPV4 \
+--description="Static IPv4 address for charismediation.org" \
+--global
+
+# Assign result to variable:
+STATIC_IP=`gcloud compute addresses describe $STATIC_IP_NAME \
+--format="get(address)" \
+--global`
+
+### Create Static IP for Standard Network Access Tier
+gcloud compute addresses create $STATIC_IP_NAME_STD \
+--project=$PROJECT_ID \
 --network-tier=STANDARD \
+--ip-version=IPV4 \
+--description="Static IPv4 address for charismediation.org using Standard Network Service Tier" \
 --region=us-west3
 
-### Classic application load balancer
+# Assign result to variable:
+STATIC_IP_STD=`gcloud compute addresses describe $STATIC_IP_NAME_STD \
+--format="get(address)" \
+--global`
+```
+
+### Load Balancer with Cloud Run - for Premium and Standard
+https://cloud.google.com/load-balancing/docs/https/setting-up-https-serverless#gcloud_1
+
+Create Google-managed Certificate
+https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs
+
+```sh
+# Create serverless Network Element Group (NEG)
+gcloud compute network-endpoint-groups create $SERVERLESS_NEG_NAME \
+--region=$REGION \
+--network-endpoint-type=serverless \
+--cloud-run-service=$CLOUD_RUN_SERVICE_NAME
+
+# Create backend service
+gcloud compute backend-services create $BACKEND_SERVICE_NAME \
+--load-balancing-scheme=EXTERNAL \
+--protocol=HTTPS \
+--port-name=http \
+--global
+
+# Add serverless NEG as a backend to the backend service
+gcloud compute backend-services add-backend $BACKEND_SERVICE_NAME \
+--global \
+--network-endpoint-group=$SERVERLESS_NEG_NAME \
+--network-endpoint-group-region=$REGION
+
+# Create a URL map (aka Load Balancer) to route incoming requests to the backend service
+gcloud compute url-maps create $URL_MAP_NAME \
+--default-service $BACKEND_SERVICE_NAME
+
+```
+
+### Create URL map to redirect HTTP traffic to HTTPS load balancer - Premium
+This accomplishes the same tasks completed when checking the box for "Redirect HTTP to HTTPS" in the console setup for Create Load Balancer (see Console section above)
+https://cloud.google.com/load-balancing/docs/https/setting-up-http-https-redirect#partial-http-lb
+
+Create charis-lb-http-redirect2.yaml file - Premium
+```sh
+kind: compute#urlMap
+name: charis-lb-http-redirect2
+defaultUrlRedirect:
+  redirectResponseCode: MOVED_PERMANENTLY_DEFAULT
+  httpsRedirect: True
+description: HTTP to HTTPS redirect for the charis-lb2 forwarding rule
+
+```
+Run command from that folder
+```sh
+# Validate map
+gcloud compute url-maps validate \
+--source charis-lb-http-redirect2.yaml
+
+# Create map
+gcloud compute url-maps import charis-lb-http-redirect2 \
+--source charis-lb-http-redirect2.yaml \
+--global
+
+# List URL maps
+gcloud compute url-maps list
+
+# Create target proxy to route HTTP traffic to URL map
+gcloud compute target-http-proxies create $TARGET_HTTP_PROXY_NAME \
+--url-map=$URL_MAP_REDIRECT_NAME
+
+```
+
+Create charis-lb-http-redirect2.yaml file - Standard
+```sh
+kind: compute#urlMap
+name: charis-lb-http-redirect-std2
+defaultUrlRedirect:
+  redirectResponseCode: MOVED_PERMANENTLY_DEFAULT
+  httpsRedirect: True
+description: HTTP to HTTPS redirect for the charis-lb-std2 forwarding rule
+
+```
+Run command from that folder
+```sh
+# Validate map
+gcloud compute url-maps validate \
+--source charis-lb-http-redirect-std2.yaml
+
+# Create map
+gcloud compute url-maps import charis-lb-http-redirect-std2 \
+--source charis-lb-http-redirect-std2.yaml \
+--global
+
+# List URL maps
+gcloud compute url-maps list
+
+# Create target proxy to route HTTP traffic to URL map
+gcloud compute target-http-proxies create $TARGET_HTTP_PROXY_NAME_STD \
+--url-map=$URL_MAP_REDIRECT_NAME_STD
+
+```
+
+```sh
+# Create certificate
+gcloud compute ssl-certificates create $SSL_CERTIFICATE_NAME \
+--project=$PROJECT_ID \
+--global \
+--description="SSL certification for Charis Mediation production and development domains" \
+--domains=$DOMAINS
+
+# Check certificate status
+gcloud compute ssl-certificates list \
+--global
+
+gcloud compute ssl-certificates describe $SSL_CERTIFICATE_NAME \
+--global \
+--format="get(name, managed.status, managed.domainStatus)"
+
+# Create target proxy to route HTTPS traffic to URL map - Premium
+gcloud compute target-https-proxies create $TARGET_HTTPS_PROXY_NAME \
+--ssl-certificates=$SSL_CERTIFICATE_NAME \
+--url-map=$URL_MAP_NAME
+
+# Create target proxy to route HTTPS traffic to URL map - Standard
+gcloud compute target-https-proxies create $TARGET_HTTPS_PROXY_NAME_STD \
+--ssl-certificates=$SSL_CERTIFICATE_NAME \
+--url-map=$URL_MAP_NAME_STD
+
+# Create forwarding rule to route incoming HTTP requests to the proxy - Premium
+gcloud compute forwarding-rules create $HTTP_FORWARDING_RULE_NAME \
+--load-balancing-scheme=EXTERNAL \
+--network-tier=PREMIUM \
+--address=$STATIC_IP \
+--target-http-proxy=$TARGET_HTTP_PROXY_NAME \
+--global \
+--ports=80
+
+# Create forwarding rule to route incoming HTTP requests to the proxy - Standard
+gcloud compute forwarding-rules create $HTTP_FORWARDING_RULE_NAME_STD \
+--load-balancing-scheme=EXTERNAL \
+--network-tier=STANDARD \
+--address=$STATIC_IP_STD \
+--target-http-proxy=$TARGET_HTTP_PROXY_NAME_STD \
+--region=$REGION \
+--global \
+--ports=80
+
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/regions/us-west3/forwardingRules
+{
+  "IPAddress": "35.217.88.156",
+  "IPProtocol": "TCP",
+  "loadBalancingScheme": "EXTERNAL",
+  "name": "charis-ip-front-std-forwarding-rule",
+  "networkTier": "STANDARD",
+  "portRange": "80",
+  "region": "us-west3",
+  "target": "projects/charis-377419/global/targetHttpProxies/charis-ip-front-std-target-proxy"
+}
+
+
+gcloud compute forwarding-rules describe $HTTP_FORWARDING_RULE_NAME \
+--global
+
+gcloud compute forwarding-rules describe $HTTP_FORWARDING_RULE_NAME_STD \
+--global
+
+gcloud compute forwarding-rules create $HTTPS_FORWARDING_RULE_NAME \
+--load-balancing-scheme=EXTERNAL \
+--network-tier=PREMIUM \
+--address=$STATIC_IP \
+--target-https-proxy=$TARGET_HTTPS_PROXY_NAME \
+--global \
+--ports=443
+
+gcloud compute forwarding-rules create $HTTPS_FORWARDING_RULE_NAME_STD \
+--load-balancing-scheme=EXTERNAL \
+--network-tier=STANDARD \
+--address=$STATIC_IP_STD \
+--target-https-proxy=$TARGET_HTTPS_PROXY_NAME \
+--region=$REGION \
+--global \
+--ports=443
+
+gcloud compute forwarding-rules describe $HTTPS_FORWARDING_RULE_NAME \
+--global
+
+gcloud compute forwarding-rules describe $HTTPS_FORWARDING_RULE_NAME_STD \
+--global
+```
+
+### Classic application load balancer for Standard Network Service Tier
+```sh
 POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/urlMaps
 {
   "defaultUrlRedirect": {
@@ -237,201 +523,6 @@ POST https://compute.googleapis.com/compute/v1/projects/charis-377419/regions/us
   "region": "projects/charis-377419/regions/us-west3",
   "target": "projects/charis-377419/global/targetHttpsProxies/charis-lb-std-target-proxy"
 }
-
-### Setup for Cloud Run
-```sh
-PROJECT_NAME="charis"
-PROJECT_ID="charis-377419"
-REGION="us-west3"
-CLOUD_RUN_SERVICE_NAME="charis-app-prod2"
-SSL_CERTIFICATE_NAME="charis-ssl2"
-STATIC_IP_NAME="charis-ip2"
-SERVERLESS_NEG_NAME="charis-neg2"
-URL_MAP_NAME="charis-lb-https2"
-URL_MAP_REDIRECT_NAME="charis-lb-http-redirect2"
-TARGET_HTTPS_PROXY_NAME="charis-lb-target-https-proxy2"
-TARGET_HTTP_PROXY_NAME="charis-lb-target-http-proxy2"
-HTTPS_FORWARDING_RULE_NAME="charis-lb-https2"
-HTTP_FORWARDING_RULE_NAME="charis-lb-http-forwarding-rule2"
-BACKEND_SERVICE_NAME="charis-be2"
-DNS_ZONE="charis-zone2"
-DOMAIN="charismediation.org"
-
-# URL_MAP_NAME for HTTPS traffic
-# URL_MAP_REDIRECT_NAME for Redirect HTTP to HTTPS
-
-# Update gcloud cli version
-sudo gcloud components update
-# N to disable usage reporting
-
-# check current project
-gcloud config get-value project
-
-# if necessary, move to desired project. Avoids need to specify project in commands.
-gcloud config set project $PROJECT_ID
-
-# check default region and zone
-gcloud config get-value run/region
-
-# if unset, change region and zone. Avoids need to specify region in commands.
-gcloud config set run/region $REGION
-
-# check if Cloud Run and Cloud Build are enabled
-gcloud services list --enabled
-NAME                              TITLE
-run.googleapis.com                Cloud Run Admin API
-cloudbuild.googleapis.com         Cloud Build API
-
-# if not enabled run 
-gcloud services enable run.googleapis.com
-gcloud services enable cloudbuild.googleapis.com
-```
-
-### Deploy Cloud Run
-https://cloud.google.com/run/docs/deploying#command-line
-
-```sh
-# Build docker image and upload to Registry. Uses Dockerfile in folder where command is run.
-gcloud builds submit \
---tag gcr.io/$PROJECT_ID/$CLOUD_RUN_SERVICE_NAME
-
-# Deploy
-gcloud run deploy $CLOUD_RUN_SERVICE_NAME \
---image gcr.io/$PROJECT_ID/$CLOUD_RUN_SERVICE_NAME\:latest \
---platform=managed \
---allow-unauthenticated \
---port=80 \
---tag=$PROJECT_NAME
-
-```
-Note URL for Cloud Run deployment
-
-### Create Static IP
-https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address#gcloud
-
-```sh
-# Create static IP
-gcloud compute addresses create $STATIC_IP_NAME \
---network-tier=PREMIUM \
---ip-version=IPV4 \
---description="Static IPv4 address for charismediation.org" \
---global
-
-# Assign result to variable:
-STATIC_IP=`gcloud compute addresses describe $STATIC_IP_NAME \
---format="get(address)" \
---global`
-```
-
-### Load Balancer with Cloud Run
-https://cloud.google.com/load-balancing/docs/https/setting-up-https-serverless#gcloud_1
-
-Create Google-managed Certificate
-https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs
-
-```sh
-# Create serverless Network Element Group (NEG)
-gcloud compute network-endpoint-groups create $SERVERLESS_NEG_NAME \
---region=$REGION \
---network-endpoint-type=serverless \
---cloud-run-service=$CLOUD_RUN_SERVICE_NAME
-
-# Create backend service
-gcloud compute backend-services create $BACKEND_SERVICE_NAME \
---load-balancing-scheme=EXTERNAL \
---protocol=HTTPS \
---port-name=http \
---global
-
-# Add serverless NEG as a backend to the backend service
-gcloud compute backend-services add-backend $BACKEND_SERVICE_NAME \
---global \
---network-endpoint-group=$SERVERLESS_NEG_NAME \
---network-endpoint-group-region=$REGION
-
-# Create a URL map (aka Load Balancer) to route incoming requests to the backend service
-gcloud compute url-maps create $URL_MAP_NAME \
---default-service $BACKEND_SERVICE_NAME
-
-```
-
-### Create URL map to redirect HTTP traffic to HTTPS load balancer
-This accomplishes the same tasks completed when checking the box for "Redirect HTTP to HTTPS" in the console setup for Create Load Balancer (see Console section above)
-https://cloud.google.com/load-balancing/docs/https/setting-up-http-https-redirect#partial-http-lb
-
-Create charis-lb-http-redirect2.yaml file
-```sh
-kind: compute#urlMap
-name: charis-lb-http-redirect2
-defaultUrlRedirect:
-  redirectResponseCode: MOVED_PERMANENTLY_DEFAULT
-  httpsRedirect: True
-description: HTTP to HTTPS redirect for the charis-lb2 forwarding rule
-
-```
-
-Run command from that folder
-```sh
-# Validate map
-gcloud compute url-maps validate \
---source charis-lb-http-redirect2.yaml
-
-# Create map
-gcloud compute url-maps import charis-lb-http-redirect2 \
---source charis-lb-http-redirect2.yaml \
---global
-
-# List URL maps
-gcloud compute url-maps list
-
-# Create target proxy to route HTTP traffic to URL map
-gcloud compute target-http-proxies create $TARGET_HTTP_PROXY_NAME \
---url-map=$URL_MAP_REDIRECT_NAME
-
-```
-
-```sh
-# Create certificate
-gcloud compute ssl-certificates create $SSL_CERTIFICATE_NAME \
---project=$PROJECT_ID \
---global \
---description="Charis Mediation production website" \
---domains=$DOMAIN
-
-# Check certificate status
-gcloud compute ssl-certificates list \
---global
-
-gcloud compute ssl-certificates describe $SSL_CERTIFICATE_NAME \
---global \
---format="get(name, managed.status, managed.domainStatus)"
-
-# Create target proxy to route HTTPS traffic to URL map
-gcloud compute target-https-proxies create $TARGET_HTTPS_PROXY_NAME \
---ssl-certificates=$SSL_CERTIFICATE_NAME \
---url-map=$URL_MAP_NAME
-
-# Create forwarding rule to route incoming HTTP requests to the proxy
-gcloud compute forwarding-rules create $HTTP_FORWARDING_RULE_NAME \
---load-balancing-scheme=EXTERNAL \
---network-tier=PREMIUM \
---address=$STATIC_IP \
---target-http-proxy=$TARGET_HTTP_PROXY_NAME \
---global \
---ports=80
-
-gcloud compute forwarding-rules describe $HTTP_FORWARDING_RULE_NAME \
---global
-
-gcloud compute forwarding-rules create $HTTPS_FORWARDING_RULE_NAME \
---load-balancing-scheme=EXTERNAL \
---network-tier=PREMIUM \
---address=$STATIC_IP \
---target-https-proxy=$TARGET_HTTPS_PROXY_NAME \
---global \
---ports=443
-
-gcloud compute forwarding-rules describe $HTTPS_FORWARDING_RULE_NAME --global
 ```
 
 ### Test Load Balancer
@@ -485,10 +576,10 @@ gcloud dns record-sets create $DOMAIN \
 
 gcloud dns record-sets create $DOMAIN \
 --project=$PROJECT_ID \
---zone=charis-zone \
+--zone=$DNS_ZONE \
 --type="A" \
 --ttl="300" \
---rrdatas=35.190.79.222
+--rrdatas=$STATIC_IP_STD
 ```
 
 Check managed domain status for the Google-managed SSL certificate. At first the domain status will show "FAILED_NOT_VISIBLE" since the SSL certificate provisioning has not been completed for the domain. It usually takes a few hours, but it could take up to 72 hours. After it successfully completes, it will show ACTIVE for status and domainStatus. See the following section for troubleshooting steps.
