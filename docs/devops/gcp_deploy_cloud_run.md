@@ -57,13 +57,24 @@ https://cloud.google.com/load-balancing/docs/https/setting-up-https-serverless
 
 Go to VPC Network, IP addresses
 Click Reserve Static Address
+
+Premium:
 Name: charis-ip
 Desccription: Static IPv4 address for charismediation.org
 Network Tier: Premium
 
+Standard:
+Name: charis-ip-std
+Desccription: Static IPv4 address for charismediation.org
+Network Tier: Standard
+Region: us-west3 (Salt Lake City, since other resources already there)
+
+Click Reserve
+
+Premium
 Go to Network Services, Load Balancing
 Click Create Load Balancer
-Under HTTP(S) load balancing, click Start Configuration
+Under Application load balancer (HTTP/S), click Start Configuration
 Under Internet facing or internal only, select From Internet to my VMs.
 Under Global or regional, select Global HTTP(S) Load Balancer (classic).
 Click Continue.
@@ -72,6 +83,27 @@ Protocol: HTTPS
 Network Service Tier: Premium
 IP Version: IPv4
 IP Address: charis-ip
+Port: 443
+Certificate: charis-ssl
+Check mark the Enable HTTP to HTTPS Redirect
+Click Done
+
+Standard:
+Go to Network Services, Load Balancing
+Click Create Load Balancer
+Under Application load balancer (HTTP/S), click Start Configuration
+Under Internet facing or internal only, select From Internet to my VMs.
+Under Global or regional, select Classic application load balancer
+Click Continue.
+Load Balancer Name: charis-lb-std
+Region: us-west3
+
+New Frontend IP and port
+Description: Classic application load balancer for Standard Network Service Tier.
+Protocol: HTTPS
+Network Service Tier: Standard
+IP Version: IPv4
+IP Address: charis-ip-front-std
 Port: 443
 Certificate: charis-ssl
 Check mark the Enable HTTP to HTTPS Redirect
@@ -95,6 +127,19 @@ Click on Host Path and Rules
 Mode: Simple Host path rule
 charis-be should be selected
 
+Change mode to "Advanced host path rule (URL redirect)
+Click "Add host and path rule"
+New host and path rule: www.charismediation.org
+Edit any paths
+Click Redirect the client to different host/path
+Host redirect: www.charismediation.org
+Path redirect: https://charismediation.org
+Keep same: Redirect response code: 301 - Moved Permanently
+Check Enable for HTTPS redirect
+Click Save
+
+Back on "Host path rules" click Done
+
 Click on Review and Finalize
 Click Create
 Note static IP address
@@ -107,6 +152,91 @@ Enter the static IP address created
 Click create
 
 ## CLI
+
+### Reserve Static IP Address
+gcloud compute addresses create charis-ip-std \
+--project=charis-377419 \
+--description=Static\ IPv4\ address\ for\ charismediation.org\ using\ Standard\ Network\ Service\ Tier \
+--network-tier=STANDARD \
+--region=us-west3
+
+### Classic application load balancer
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/urlMaps
+{
+  "defaultUrlRedirect": {
+    "httpsRedirect": true,
+    "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT"
+  },
+  "description": "Automatically generated HTTP to HTTPS redirect for the charis-ip-front-std forwarding rule",
+  "name": "charis-ip-front-std-redirect"
+}
+
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/targetHttpProxies
+{
+  "name": "charis-ip-front-std-target-proxy",
+  "urlMap": "projects/charis-377419/global/urlMaps/charis-ip-front-std-redirect"
+}
+
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/regions/us-west3/forwardingRules
+{
+  "IPAddress": "35.217.88.156",
+  "IPProtocol": "TCP",
+  "loadBalancingScheme": "EXTERNAL",
+  "name": "charis-ip-front-std-forwarding-rule",
+  "networkTier": "STANDARD",
+  "portRange": "80",
+  "region": "us-west3",
+  "target": "projects/charis-377419/global/targetHttpProxies/charis-ip-front-std-target-proxy"
+}
+
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/urlMaps
+{
+  "defaultService": "projects/charis-377419/global/backendServices/charis-be",
+  "hostRules": [
+    {
+      "hosts": [
+        "www.charismediation.org"
+      ],
+      "pathMatcher": "path-matcher-1"
+    }
+  ],
+  "name": "charis-lb-std",
+  "pathMatchers": [
+    {
+      "defaultUrlRedirect": {
+        "hostRedirect": "www.charismediation.org",
+        "httpsRedirect": true,
+        "pathRedirect": "charismediation.org",
+        "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+        "stripQuery": false
+      },
+      "name": "path-matcher-1"
+    }
+  ]
+}
+
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/targetHttpsProxies
+{
+  "name": "charis-lb-std-target-proxy",
+  "quicOverride": "NONE",
+  "sslCertificates": [
+    "projects/charis-377419/global/sslCertificates/charis-ssl"
+  ],
+  "urlMap": "projects/charis-377419/global/urlMaps/charis-lb-std"
+}
+
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/regions/us-west3/forwardingRules
+{
+  "IPAddress": "projects/charis-377419/regions/us-west3/addresses/charis-ip-std",
+  "IPProtocol": "TCP",
+  "description": "Frontend IP for Standard Network Service Tier.",
+  "loadBalancingScheme": "EXTERNAL",
+  "name": "charis-ip-front-std",
+  "networkTier": "STANDARD",
+  "portRange": "443",
+  "region": "projects/charis-377419/regions/us-west3",
+  "target": "projects/charis-377419/global/targetHttpsProxies/charis-lb-std-target-proxy"
+}
 
 ### Setup for Cloud Run
 ```sh
