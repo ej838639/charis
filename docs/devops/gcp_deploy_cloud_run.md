@@ -160,9 +160,9 @@ PROJECT_NAME="charis"
 PROJECT_ID="charis-377419"
 REGION="us-west3"
 CLOUD_RUN_SERVICE_NAME="charis-app-prod2"
-SSL_CERTIFICATE_NAME="charis-ssl3"
+SSL_CERTIFICATE_NAME="charis-ssl4"
 STATIC_IP_NAME="charis-ip2"
-STATIC_IP_NAME_STD="charis-ip-std"
+STATIC_IP_NAME_STD="charis-ip-std2"
 SERVERLESS_NEG_NAME="charis-neg2"
 URL_MAP_NAME="charis-lb-https2"
 URL_MAP_NAME_STD="charis-lb-https-std2"
@@ -179,7 +179,8 @@ HTTP_FORWARDING_RULE_NAME_STD="charis-lb-http-forwarding-rule-std2"
 BACKEND_SERVICE_NAME="charis-be2"
 DNS_ZONE="charis-zone2"
 DOMAIN="charismediation.org"
-DOMAINS="charismediation.org,dev.charismediation.org"
+DOMAINS="charismediation.org"
+# DOMAINS="charismediation.org,dev.charismediation.org"
 
 # URL_MAP_NAME for HTTPS traffic
 # URL_MAP_REDIRECT_NAME for Redirect HTTP to HTTPS
@@ -348,12 +349,46 @@ gcloud compute url-maps import charis-lb-http-redirect-std2 \
 --source charis-lb-http-redirect-std2.yaml \
 --global
 
+# Delete the folloiwng after the above is tested
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/urlMaps
+{
+  "defaultService": "projects/charis-377419/global/backendServices/charis-be",
+  "hostRules": [
+    {
+      "hosts": [
+        "www.charismediation.org"
+      ],
+      "pathMatcher": "path-matcher-1"
+    }
+  ],
+  "name": "charis-lb-std",
+  "pathMatchers": [
+    {
+      "defaultUrlRedirect": {
+        "hostRedirect": "www.charismediation.org",
+        "httpsRedirect": true,
+        "pathRedirect": "charismediation.org",
+        "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+        "stripQuery": false
+      },
+      "name": "path-matcher-1"
+    }
+  ]
+}
+
 # List URL maps
 gcloud compute url-maps list
 
 # Create target proxy to route HTTP traffic to URL map
 gcloud compute target-http-proxies create $TARGET_HTTP_PROXY_NAME_STD \
 --url-map=$URL_MAP_REDIRECT_NAME_STD
+
+# Delete after the above command is tested
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/targetHttpProxies
+{
+  "name": "charis-ip-front-std-target-proxy",
+  "urlMap": "projects/charis-377419/global/urlMaps/charis-ip-front-std-redirect"
+}
 
 ```
 
@@ -383,6 +418,17 @@ gcloud compute target-https-proxies create $TARGET_HTTPS_PROXY_NAME_STD \
 --ssl-certificates=$SSL_CERTIFICATE_NAME \
 --url-map=$URL_MAP_NAME_STD
 
+# Delete the following after the above is tested
+POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/targetHttpsProxies
+{
+  "name": "charis-lb-std-target-proxy",
+  "quicOverride": "NONE",
+  "sslCertificates": [
+    "projects/charis-377419/global/sslCertificates/charis-ssl"
+  ],
+  "urlMap": "projects/charis-377419/global/urlMaps/charis-lb-std"
+}
+
 # Create forwarding rule to route incoming HTTP requests to the proxy - Premium
 gcloud compute forwarding-rules create $HTTP_FORWARDING_RULE_NAME \
 --load-balancing-scheme=EXTERNAL \
@@ -402,6 +448,7 @@ gcloud compute forwarding-rules create $HTTP_FORWARDING_RULE_NAME_STD \
 --global \
 --ports=80
 
+# Delete after testing above command
 POST https://compute.googleapis.com/compute/v1/projects/charis-377419/regions/us-west3/forwardingRules
 {
   "IPAddress": "35.217.88.156",
@@ -413,7 +460,6 @@ POST https://compute.googleapis.com/compute/v1/projects/charis-377419/regions/us
   "region": "us-west3",
   "target": "projects/charis-377419/global/targetHttpProxies/charis-ip-front-std-target-proxy"
 }
-
 
 gcloud compute forwarding-rules describe $HTTP_FORWARDING_RULE_NAME \
 --global
@@ -438,79 +484,7 @@ gcloud compute forwarding-rules create $HTTPS_FORWARDING_RULE_NAME_STD \
 --global \
 --ports=443
 
-gcloud compute forwarding-rules describe $HTTPS_FORWARDING_RULE_NAME \
---global
-
-gcloud compute forwarding-rules describe $HTTPS_FORWARDING_RULE_NAME_STD \
---global
-```
-
-### Classic application load balancer for Standard Network Service Tier
-```sh
-POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/urlMaps
-{
-  "defaultUrlRedirect": {
-    "httpsRedirect": true,
-    "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT"
-  },
-  "description": "Automatically generated HTTP to HTTPS redirect for the charis-ip-front-std forwarding rule",
-  "name": "charis-ip-front-std-redirect"
-}
-
-POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/targetHttpProxies
-{
-  "name": "charis-ip-front-std-target-proxy",
-  "urlMap": "projects/charis-377419/global/urlMaps/charis-ip-front-std-redirect"
-}
-
-POST https://compute.googleapis.com/compute/v1/projects/charis-377419/regions/us-west3/forwardingRules
-{
-  "IPAddress": "35.217.88.156",
-  "IPProtocol": "TCP",
-  "loadBalancingScheme": "EXTERNAL",
-  "name": "charis-ip-front-std-forwarding-rule",
-  "networkTier": "STANDARD",
-  "portRange": "80",
-  "region": "us-west3",
-  "target": "projects/charis-377419/global/targetHttpProxies/charis-ip-front-std-target-proxy"
-}
-
-POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/urlMaps
-{
-  "defaultService": "projects/charis-377419/global/backendServices/charis-be",
-  "hostRules": [
-    {
-      "hosts": [
-        "www.charismediation.org"
-      ],
-      "pathMatcher": "path-matcher-1"
-    }
-  ],
-  "name": "charis-lb-std",
-  "pathMatchers": [
-    {
-      "defaultUrlRedirect": {
-        "hostRedirect": "www.charismediation.org",
-        "httpsRedirect": true,
-        "pathRedirect": "charismediation.org",
-        "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
-        "stripQuery": false
-      },
-      "name": "path-matcher-1"
-    }
-  ]
-}
-
-POST https://compute.googleapis.com/compute/v1/projects/charis-377419/global/targetHttpsProxies
-{
-  "name": "charis-lb-std-target-proxy",
-  "quicOverride": "NONE",
-  "sslCertificates": [
-    "projects/charis-377419/global/sslCertificates/charis-ssl"
-  ],
-  "urlMap": "projects/charis-377419/global/urlMaps/charis-lb-std"
-}
-
+# Delete after above command is tested
 POST https://compute.googleapis.com/compute/v1/projects/charis-377419/regions/us-west3/forwardingRules
 {
   "IPAddress": "projects/charis-377419/regions/us-west3/addresses/charis-ip-std",
@@ -522,7 +496,13 @@ POST https://compute.googleapis.com/compute/v1/projects/charis-377419/regions/us
   "portRange": "443",
   "region": "projects/charis-377419/regions/us-west3",
   "target": "projects/charis-377419/global/targetHttpsProxies/charis-lb-std-target-proxy"
-}
+
+
+gcloud compute forwarding-rules describe $HTTPS_FORWARDING_RULE_NAME \
+--global
+
+gcloud compute forwarding-rules describe $HTTPS_FORWARDING_RULE_NAME_STD \
+--global
 ```
 
 ### Test Load Balancer
