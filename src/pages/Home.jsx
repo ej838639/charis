@@ -6,7 +6,7 @@ import HeroHome from '../partials/HeroHome';
 import FeaturesBlocks from '../partials/FeaturesBlocks';
 import ServicesNote from '../partials/ServicesNote';
 import FeaturesZigZag from '../partials/FeaturesZigzag';
-import Testimonials from '../partials/Testimonials';
+import Testimonials from '../partials/Testimonials_v2';
 // import Banner from '../partials/Banner';
 import Footer from '../partials/Footer';
 
