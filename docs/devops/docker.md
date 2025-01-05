@@ -62,7 +62,7 @@ CMD ["nginx","-g","daemon off;"]
 Docker build not necessary when deploying to GCP since using `gcloud builds submit` that builds image and pushes it to gcr.io
 ```sh
 docker build \
--t ej838639/charis:1.0 \
+-t ej838639/charis:8.0 \
 -t ej838639/charis:latest \
 --platform linux/amd64 \
 .
