@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const testimonials = [
   {
@@ -31,12 +31,17 @@ function Testimonials() {
   const [index, setIndex] = useState(0);
 
   const nextTestimonial = () => {
-    setIndex((index + 2) % testimonials.length);
+    setIndex((index + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
-    setIndex((index - 2 + testimonials.length) % testimonials.length);
+    setIndex((index - 1 + testimonials.length) % testimonials.length);
   };
+
+  useEffect(() => {
+    const interval = setInterval(nextTestimonial, 5000);
+    return () => clearInterval(interval);
+  }, [index]);
 
   return (
     <section>
