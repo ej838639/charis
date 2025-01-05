@@ -1,16 +1,3 @@
-.testimonial-container {
-  display: flex;
-  justify-content: space-between;
-  width: 70%;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.testimonial-column {
-  width: 45%;
-}
-
 .testimonial-text {
   opacity: 0;
   transition: opacity 1s;

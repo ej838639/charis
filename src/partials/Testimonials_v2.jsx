@@ -68,13 +68,13 @@ function Testimonials() {
 
   return (
     <section>
-      <div className="max-w-3xl mx-auto text-center pb-6 md:pb-6">
+      <div className="max-w-6xl mx-auto text-center pb-6">
         <h2 className="h2 pb-4">What people are saying about us</h2>
         <h4 className="h4 text-xl">(Quotes from clients with names changed to protect their privacy.)</h4>
       </div>
       
-      <div className="testimonial-container">
-        <div className="testimonial-column">
+      <div className="max-w-6xl mx-auto text-center grid grid-cols-1 md:grid-cols-2 px-6 gap-6">
+        <div className="border px-6 py-6">
           <blockquote className={`testimonial-text ${fade ? 'fade-in' : 'fade-out'}`}>
             {testimonials[index].text}
           </blockquote>
@@ -82,7 +82,7 @@ function Testimonials() {
             <cite>{testimonials[index].author}</cite> | <span>{testimonials[index].location}</span>
           </div>
         </div>
-        <div className="testimonial-column">
+        <div className="border px-6 py-6">
           <blockquote className={`testimonial-text ${fade ? 'fade-in' : 'fade-out'}`}>
             {testimonials[(index + 1) % testimonials.length].text}
           </blockquote>
