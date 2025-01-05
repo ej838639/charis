@@ -91,7 +91,13 @@ function FeaturesZigzag() {
           </div>
         </div>
       </div>
+
+      <div className="max-w-3xl mx-auto text-center pb-6 md:pb-6">
+
+      </div>
+
     </section>
+    
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../css/Testimonials.css'; // Import the CSS file for transitions
 
 const testimonials = [
   {
@@ -29,47 +30,52 @@ const testimonials = [
 
 function Testimonials() {
   const [index, setIndex] = useState(0);
+  const [fade, setFade] = useState(true);
 
   const nextTestimonial = () => {
-    setIndex((index + 1) % testimonials.length);
+    setFade(false);
+    setTimeout(() => {
+      setIndex((index + 2) % testimonials.length);
+      setFade(true);
+    }, 1000);
   };
 
   const prevTestimonial = () => {
-    setIndex((index - 1 + testimonials.length) % testimonials.length);
+    setFade(false);
+    setTimeout(() => {
+      setIndex((index - 2 + testimonials.length) % testimonials.length);
+      setFade(true);
+    }, 1000);
   };
-
-  useEffect(() => {
-    const interval = setInterval(nextTestimonial, 5000);
-    return () => clearInterval(interval);
-  }, [index]);
 
   return (
     <section>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20 border-t border-gray-800">
-
-          {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 pb-4">What people are saying about us</h2>
-            <h4 className="h4 text-xl">Here are some experiences from people who have worked with us</h4>
-          </div>
-
-          {/* Testimonials */}
-          <div className="flex justify-between items-center">
-            <button onClick={prevTestimonial} className="text-gray-200">←</button>
-            <div className="grid grid-cols-2 gap-6">
-              {testimonials.slice(index, index + 2).map((testimonial, i) => (
-                <div key={i} className="flex flex-col h-full p-6 bg-black-900" data-aos="fade-up">
-                  <blockquote className="text-lg text-gray-200 grow">{testimonial.text}</blockquote>
-                  <div className="text-gray-700 font-medium mt-6 pt-5 border-t border-gray-700">
-                    <cite className="text-green-600 not-italic">{testimonial.author}</cite> | <a className="text-green-600">{testimonial.role}</a> | <a className="text-green-600">{testimonial.location}</a>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button onClick={nextTestimonial} className="text-gray-200">→</button>
+      <div className="max-w-3xl mx-auto text-center pb-6 md:pb-6">
+        <h2 className="h2 pb-4">What people are saying about us</h2>
+        <h4 className="h4 text-xl">(Names are changed to protect the privacy of clients.)</h4>
+      </div>
+      
+      <div className="testimonial-container">
+        <div className="testimonial-column">
+          <blockquote className={`testimonial-text ${fade ? 'fade-in' : 'fade-out'}`}>
+            {testimonials[index].text}
+          </blockquote>
+          <div className={`testimonial-author ${fade ? 'fade-in' : 'fade-out'}`}>
+            <cite>{testimonials[index].author}</cite> | <span>{testimonials[index].role}</span> | <span>{testimonials[index].location}</span>
           </div>
         </div>
+        <div className="testimonial-column">
+          <blockquote className={`testimonial-text ${fade ? 'fade-in' : 'fade-out'}`}>
+            {testimonials[(index + 1) % testimonials.length].text}
+          </blockquote>
+          <div className={`testimonial-author ${fade ? 'fade-in' : 'fade-out'}`}>
+            <cite>{testimonials[(index + 1) % testimonials.length].author}</cite> | <span>{testimonials[(index + 1) % testimonials.length].role}</span> | <span>{testimonials[(index + 1) % testimonials.length].location}</span>
+          </div>
+        </div>
+      </div>
+      <div className="testimonial-buttons">
+        <button onClick={prevTestimonial}>Previous</button>
+        <button onClick={nextTestimonial}>Next</button>
       </div>
     </section>
   );

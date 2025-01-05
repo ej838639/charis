@@ -25,10 +25,10 @@ function Home() {
 
         {/*  Page sections */}
         <HeroHome />
+        <Testimonials />
         <FeaturesBlocks />
         <ServicesNote />
         <FeaturesZigZag />
-        <Testimonials />
         {/* <Newsletter /> */}
       </main>
 
