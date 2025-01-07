@@ -73,9 +73,19 @@ docker build \
 Docker build not necessary when deploying to GCP since using `gcloud builds submit` that builds image and pushes it to gcr.io
 ```sh
 docker build \
--t charis:9.0 \
+-t ej838639/charis:9.2 \
 -t charis:latest \
---platform linux/amd64 \
+--platform linux/armv8 \
+.
+
+docker build \
+-t ej838639/charis:9.2 \
+--platform linux/arm64v8 \
+.
+
+docker build \
+-t charis:9.8 \
+--platform linux/arm64/v8 \
 .
 
 ```
