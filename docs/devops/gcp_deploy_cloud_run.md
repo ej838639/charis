@@ -570,20 +570,8 @@ TAG="latest"
 # Create new build files
 npm run build
 
-# Build docker image and upload to Container Registry. Uses Dockerfile in folder where command is run. - depracated
-gcloud builds submit \
---tag gcr.io/$PROJECT_ID/$CLOUD_RUN_SERVICE_NAME
-
-# Deploy - degracated
-gcloud run deploy $CLOUD_RUN_SERVICE_NAME \
---image gcr.io/$PROJECT_ID/$REPO_NAME\:$IMAGE_NAME \
---platform=managed \
---allow-unauthenticated \
---port=80 \
---tag=$PROJECT_NAME
-
-# Artifact registry
-### Push to Artifact registry
+# Authenticate Docker with Google Cloud
+gcloud auth configure-docker $LOCATION
 
 # tag the local image wiht the repo name
 docker tag $IMAGE $LOCATION/$PROJECT_ID/$REPO/$IMAGE_ARTIFACT:$TAG
@@ -591,11 +579,12 @@ docker tag $IMAGE $LOCATION/$PROJECT_ID/$REPO/$IMAGE_ARTIFACT:$TAG
 docker push $LOCATION/$PROJECT_ID/$REPO/$IMAGE_ARTIFACT:$TAG
 
 gcloud builds submit \
---tag $LOCATION/$PROJECT_ID/$REPO/$IMAGE_ARTIFACT
+--tag $LOCATION/$PROJECT_ID/$REPO/$IMAGE_ARTIFACT:$TAG
 
 gcloud run deploy $CLOUD_RUN_SERVICE_NAME \
---image $LOCATION/$PROJECT_ID/$REPO/$IMAGE_ARTIFACT
-
+--image $LOCATION/$PROJECT_ID/$REPO/$IMAGE_ARTIFACT:$TAG \
+--platform=managed \
+--region=$REGION
 
 ```
 

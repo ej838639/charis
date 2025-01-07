@@ -58,12 +58,23 @@ EXPOSE 443
 CMD ["nginx","-g","daemon off;"]
 ```
 
-### Docker Build for Production
+### Docker Build for Production - depracated
 Docker build not necessary when deploying to GCP since using `gcloud builds submit` that builds image and pushes it to gcr.io
 ```sh
 docker build \
 -t ej838639/charis:8.0 \
 -t ej838639/charis:latest \
+--platform linux/amd64 \
+.
+
+```
+
+### Docker Build for Production
+Docker build not necessary when deploying to GCP since using `gcloud builds submit` that builds image and pushes it to gcr.io
+```sh
+docker build \
+-t charis:9.0 \
+-t charis:latest \
 --platform linux/amd64 \
 .
 
