@@ -9,7 +9,6 @@ const FORM_ENDPOINT = "https://public.herotofu.com/v1/376e3d10-b7f7-11ed-8d0b-95
 const AskForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = () => {
-    preventDefault(); // Prevent full page reload
     setTimeout(() => {
       setSubmitted(true);
     }, 100);
