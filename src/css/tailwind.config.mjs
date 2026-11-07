@@ -1,4 +1,6 @@
-module.exports = {
+import forms from '@tailwindcss/forms'
+
+export default {
   content: [
     './index.html',
     './src/**/*.{js,jsx,ts,tsx}',
@@ -80,6 +82,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
+    forms,
   ],
 };

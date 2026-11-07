@@ -554,7 +554,7 @@ gcloud run services delete $CLOUD_RUN_SERVICE_NAME
 
 ```
 
-### Deploy revision of app
+### Deploy revision of app - Depricated
 
 ```sh
 PROJECT_NAME="charis"
@@ -596,6 +596,27 @@ gcloud builds submit \
 gcloud run deploy $CLOUD_RUN_SERVICE_NAME \
 --image $LOCATION/$PROJECT_ID/$REPO/$IMAGE_ARTIFACT
 
-
 ```
 
+### Deploy method 2026
+
+```sh
+PROJECT_ID="charis-377419"
+REGION="us-west3"
+SERVICE="charis-app-prod"
+IMAGE="us-docker.pkg.dev/${PROJECT_ID}/gcr.io/${SERVICE}:latest"
+
+gcloud artifacts repositories describe gcr.io \
+  --project="$PROJECT_ID" \
+  --location=us &&
+gcloud builds submit . \
+  --project="$PROJECT_ID" \
+  --tag="$IMAGE" &&
+gcloud run deploy "$SERVICE" \
+  --project="$PROJECT_ID" \
+  --region="$REGION" \
+  --image="$IMAGE" \
+  --port=80 \
+  --allow-unauthenticated \
+  --tag=charis
+```

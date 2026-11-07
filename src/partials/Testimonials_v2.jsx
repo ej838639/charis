@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../css/Testimonials.css'; // Import the CSS file for transitions
+import '../css/testimonials.css';
 
 const testimonials = [
   {
