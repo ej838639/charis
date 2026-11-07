@@ -1,27 +1,11 @@
-import React, { useState } from "react";
+import React from 'react';
 import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
-import Home from './Home';
 import Footer from '../partials/Footer';
 
 const FORM_ENDPOINT = "https://public.herotofu.com/v1/afe5dc60-bb78-11ed-ae44-d7f6e782ac69";
 
 const RequestForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = () => {
-    setTimeout(() => {
-      setSubmitted(true);
-    }, 100);
-  };
-
-  if (submitted) {
-    return (
-      <div className="flex flex-col min-h-screen overflow-hidden">
-        <Home />
-      </div>
-    );
-  }
-
   return (
     <div className="bg-green-600 flex flex-col px-4 sm:px-6 min-h-screen overflow-hidden">
 
@@ -48,9 +32,9 @@ const RequestForm = () => {
 
             <form
               action={FORM_ENDPOINT}
-              onSubmit={handleSubmit}
               method="POST"
               target="_blank"
+              rel="noopener"
             >
               <div className="max-w-2xl mx-auto px-4 sm:px-6">
                 <div className="flex flex-wrap -mx-3 mb-4">
@@ -78,18 +62,19 @@ const RequestForm = () => {
                     <label className="block text-white-900 text-sm font-medium mb-1">
                       Phone
                     </label>
-                    <input name="Phone" placeholder="xxx.xxx.xxxx" type="tel" pattern="[0-9]{3}.[0-9]{3}.[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}" required
+                    <input name="Phone" placeholder="xxx.xxx.xxxx" type="tel" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}" required
                       className="form-input w-full placeholder-gray-200 text-white-900" 
                     />
                   </div>
                 </div>
                 <div className="flex flex-wrap -mx-3 mb-4">
                   <div className="w-full">
-                    <label className="block text-white-900 text-sm font-medium mb-1">
+                    <label htmlFor="leave-message" className="block text-white-900 text-sm font-medium mb-1">
                       Can we leave a message at this number?
                     </label>
-                    <select name="Leave message?" type="text" required
+                    <select id="leave-message" name="Leave message?" defaultValue="" required
                       className="form-input w-full placeholder-gray-200 text-white-900">
+                      <option value="" disabled>Select an answer</option>
                       <option>Yes</option>
                       <option>No</option>
                     </select>
@@ -141,9 +126,9 @@ const RequestForm = () => {
                 <div className="flex flex-wrap -mx-3 mb-4">
                   <div className="w-full">
                     <label className="block text-white-900 text-sm font-medium mb-1">
-                      What faith backgrounds are invovled?
+                      What faith backgrounds are involved?
                     </label>
-                    <textarea name="Faith backgrounds" placeholder="List the your faith background the the faith background of those involved." type="text" required 
+                    <textarea name="Faith backgrounds" placeholder="List your faith background and those of the other people involved." type="text" required
                       className="form-input h-24 w-full placeholder-gray-200 text-white-900" 
                     />
                   </div>
@@ -198,6 +183,7 @@ const RequestForm = () => {
                     >
                       Submit
                     </button>
+                    <p className="mt-2 text-sm">Check the new tab for the result of your submission.</p>
                   </div>
                 </div>
               </div>

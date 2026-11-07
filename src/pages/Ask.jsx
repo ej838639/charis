@@ -1,27 +1,11 @@
-import React, { useState } from "react";
+import React from 'react';
 import Header from '../partials/Header';
 import PageIllustration from '../partials/PageIllustration';
-import Home from '../pages/Home';
 import Footer from '../partials/Footer';
 
 const FORM_ENDPOINT = "https://public.herotofu.com/v1/376e3d10-b7f7-11ed-8d0b-95fdf80f9cee";
 
 const AskForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = () => {
-    setTimeout(() => {
-      setSubmitted(true);
-    }, 100);
-  };
-
-  if (submitted) {
-    return (
-      <div className="flex flex-col min-h-screen overflow-hidden">
-        <Home />
-      </div>
-    );
-  }
-
   return (
     <div className="bg-green-600 flex flex-col min-h-screen overflow-hidden">
 
@@ -48,9 +32,9 @@ const AskForm = () => {
 
             <form
               action={FORM_ENDPOINT}
-              onSubmit={handleSubmit}
               method="POST"
               target="_blank"
+              rel="noopener"
             >
               <div className="max-w-2xl mx-auto">
                 <div className="flex flex-wrap -mx-3 mb-4">
@@ -76,7 +60,7 @@ const AskForm = () => {
                     <label className="block text-white-900 text-sm font-medium mb-1">
                       Phone (optional)
                     </label>
-                    <input name="Phone" placeholder="xxx.xxx.xxxx" type="tel" pattern="[0-9]{3}.[0-9]{3}.[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                    <input name="Phone" placeholder="xxx.xxx.xxxx" type="tel" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}"
                       className="form-input w-full placeholder-gray-200 text-white-900"/>
                   </div>
                 </div>              
@@ -100,6 +84,7 @@ const AskForm = () => {
                     >
                       Submit
                     </button>
+                    <p className="mt-2 text-sm">Check the new tab for the result of your submission.</p>
                   </div>
                 </div>
               </div>

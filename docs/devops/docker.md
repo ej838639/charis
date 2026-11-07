@@ -19,7 +19,7 @@ WORKDIR /app
 COPY . .
 RUN npm install
 EXPOSE 5173
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
 ```
 
 ### Docker Build and Run for Production
@@ -31,7 +31,7 @@ docker build \
 
 docker run \
 --name charis_0_1 \
--p 5173:5173 \
+-p 127.0.0.1:5173:5173 \
 -d \
 ej838639/charis:0.1
 ```
