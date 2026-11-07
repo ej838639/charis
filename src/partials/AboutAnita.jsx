@@ -6,7 +6,7 @@ function AboutAnita() {
     <section>
       <div className="max-w-6xl mx-auto pb-10 px-4 sm:px-6 relative">
           {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 pt-32 md:pt-40">
+          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 pt-4 md:pt-8">
             <h1 className="h1 mb-4">Get to know Anita</h1>
             <h4 className="h4">Anita Johnson</h4>
             <h4 className="h4">MSW, Certified Mediator and Christian Conciliator</h4>

@@ -37,7 +37,7 @@ const RequestForm = () => {
         </div>
 
         <section className="relative">
-          <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+          <div className="pt-4 pb-12 md:pt-8 md:pb-20">
 
             {/* Page header */}
             <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">

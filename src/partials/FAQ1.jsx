@@ -6,7 +6,7 @@ function FAQ1() {
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center  pb-12 md:pb-16 pt-32 md:pt-40">
+          <div className="max-w-3xl mx-auto text-center  pb-12 md:pb-16 pt-4 md:pt-8">
             <h1 className="h1 mb-4">FAQ</h1>
             <h4 className="h4">Common questions about mediation</h4>
           </div>
