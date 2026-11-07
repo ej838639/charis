@@ -563,7 +563,7 @@ REGION="us-west3"
 CLOUD_RUN_SERVICE_NAME="charis-app-prod"
 LOCATION="us-docker.pkg.dev"
 REPO="gcr.io"
-IMAGE="charis"
+IMAGE="ej838639/charis"
 IMAGE_ARTIFACT="charis-app-prod"
 TAG="latest"
 
